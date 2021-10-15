@@ -1,0 +1,16 @@
+2,nume2,parola2,nume2,adresa2,tara2,31312318
+3,nume3,parola3,nume3,adresa3,tara3,41312318
+4,nume4,parola4,nume4,adresa4,tara4,11312318
+5,nume5,parola5,nume5,adres5a,tara5,81312318
+6,nume6,parola6,nume6,adresa6,tara6,61312318
+1,numenou,parola,numenou,adresa,tara,21312318
+2,nume2,parola2,nume2,adresa2,tara2,31312318
+3,nume3,parola3,nume3,adresa3,tara3,41312318
+4,nume4,parola4,nume4,adresa4,tara4,11312318
+5,nume5,parola5,nume5,adres5a,tara5,81312318
+6,nume6,parola6,nume6,adresa6,tara6,61312318
+9988,numelemeu,parolamea,numelemeu,adresamea,taramea,218323
+2175,emailionut,parolaionut,ionut,livrare,tara,219382
+6353,ionut,parolaionut,emailionut,livrare,tara,2138219
+9194,email123456,parola123456,nume123,adresa123,romania,932813
+7988,nume123,parola123,email123,adresa123,tara123,9231392

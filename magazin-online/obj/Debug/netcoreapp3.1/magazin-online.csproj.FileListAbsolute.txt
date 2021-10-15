@@ -1,0 +1,13 @@
+C:\Users\catas\Desktop\Full Stack C#\Incapsularea\magazin-online\magazin-online\obj\Debug\netcoreapp3.1\magazin-online.csprojAssemblyReference.cache
+C:\Users\catas\Desktop\Full Stack C#\Incapsularea\magazin-online\magazin-online\obj\Debug\netcoreapp3.1\magazin-online.AssemblyInfoInputs.cache
+C:\Users\catas\Desktop\Full Stack C#\Incapsularea\magazin-online\magazin-online\obj\Debug\netcoreapp3.1\magazin-online.AssemblyInfo.cs
+C:\Users\catas\Desktop\Full Stack C#\Incapsularea\magazin-online\magazin-online\obj\Debug\netcoreapp3.1\magazin-online.csproj.CoreCompileInputs.cache
+C:\Users\catas\Desktop\Full Stack C#\Incapsularea\magazin-online\magazin-online\bin\Debug\netcoreapp3.1\magazin-online.exe
+C:\Users\catas\Desktop\Full Stack C#\Incapsularea\magazin-online\magazin-online\bin\Debug\netcoreapp3.1\magazin-online.deps.json
+C:\Users\catas\Desktop\Full Stack C#\Incapsularea\magazin-online\magazin-online\bin\Debug\netcoreapp3.1\magazin-online.runtimeconfig.json
+C:\Users\catas\Desktop\Full Stack C#\Incapsularea\magazin-online\magazin-online\bin\Debug\netcoreapp3.1\magazin-online.runtimeconfig.dev.json
+C:\Users\catas\Desktop\Full Stack C#\Incapsularea\magazin-online\magazin-online\bin\Debug\netcoreapp3.1\magazin-online.dll
+C:\Users\catas\Desktop\Full Stack C#\Incapsularea\magazin-online\magazin-online\bin\Debug\netcoreapp3.1\magazin-online.pdb
+C:\Users\catas\Desktop\Full Stack C#\Incapsularea\magazin-online\magazin-online\obj\Debug\netcoreapp3.1\magazin-online.dll
+C:\Users\catas\Desktop\Full Stack C#\Incapsularea\magazin-online\magazin-online\obj\Debug\netcoreapp3.1\magazin-online.pdb
+C:\Users\catas\Desktop\Full Stack C#\Incapsularea\magazin-online\magazin-online\obj\Debug\netcoreapp3.1\magazin-online.genruntimeconfig.cache
