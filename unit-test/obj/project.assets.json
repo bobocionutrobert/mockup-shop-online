@@ -5594,11 +5594,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\catas\\Desktop\\Full Stack C#\\Incapsularea\\magazin-online\\unit-test\\unit-test.csproj",
+      "projectUniqueName": "C:\\Users\\catas\\Desktop\\FullStackC#\\Incapsularea\\magazin-online\\unit-test\\unit-test.csproj",
       "projectName": "unit-test",
-      "projectPath": "C:\\Users\\catas\\Desktop\\Full Stack C#\\Incapsularea\\magazin-online\\unit-test\\unit-test.csproj",
+      "projectPath": "C:\\Users\\catas\\Desktop\\FullStackC#\\Incapsularea\\magazin-online\\unit-test\\unit-test.csproj",
       "packagesPath": "C:\\Users\\catas\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\catas\\Desktop\\Full Stack C#\\Incapsularea\\magazin-online\\unit-test\\obj\\",
+      "outputPath": "C:\\Users\\catas\\Desktop\\FullStackC#\\Incapsularea\\magazin-online\\unit-test\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -5620,8 +5620,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\catas\\Desktop\\Full Stack C#\\Incapsularea\\magazin-online\\magazin-online\\magazin-online.csproj": {
-              "projectPath": "C:\\Users\\catas\\Desktop\\Full Stack C#\\Incapsularea\\magazin-online\\magazin-online\\magazin-online.csproj"
+            "C:\\Users\\catas\\Desktop\\FullStackC#\\Incapsularea\\magazin-online\\magazin-online\\magazin-online.csproj": {
+              "projectPath": "C:\\Users\\catas\\Desktop\\FullStackC#\\Incapsularea\\magazin-online\\magazin-online\\magazin-online.csproj"
             }
           }
         }

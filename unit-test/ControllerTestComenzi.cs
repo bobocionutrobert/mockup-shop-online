@@ -45,6 +45,22 @@ namespace unit_test
 
             Assert.Equal(1, control.comanda(1).getId());
         }
+        [Fact]
 
+        public void testistoric()
+        {
+
+           
+            List<Comenzi> list = control.istoriccomenzi(1);
+
+
+            output.WriteLine(list.Count.ToString());
+
+            for(int i=0;i< list.Count; i++)
+            {
+                output.WriteLine(list[i].descriere());
+            }
+
+        }
     }
 }

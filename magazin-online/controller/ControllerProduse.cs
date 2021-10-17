@@ -148,7 +148,7 @@ namespace magazin_online
         public void load()
         {
 
-            StreamReader read = new StreamReader(@"C:\Users\catas\Desktop\Full Stack C#\Incapsularea\magazin-online\magazin-online\produse.txt");
+            StreamReader read = new StreamReader(@"C:\Users\catas\Desktop\FullStackC#\Incapsularea\magazin-online\magazin-online\resources\produse.txt");
 
             string line = "";
 
@@ -192,7 +192,7 @@ namespace magazin_online
 
         public void Save()
         {
-            StreamWriter write = new StreamWriter(@"C:\Users\catas\Desktop\Full Stack C#\Incapsularea\magazin-online\magazin-online\produse.txt");
+            StreamWriter write = new StreamWriter(@"C:\Users\catas\Desktop\FullStackC#\Incapsularea\magazin-online\magazin-online\resources\produse.txt");
 
             write.Write(toSave());
 

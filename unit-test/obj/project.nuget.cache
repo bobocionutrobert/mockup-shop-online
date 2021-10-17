@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "j/WjKMYc+5cKrOiGHeajP1t45pDZz/atCIQjS+EZq5GFzIX0UV3SMBtcqx4EKiCvcJSODkQoT/3cCnwHs6ov2g==",
+  "dgSpecHash": "uCoraBZ4cdn7ia4DD16sSgziGCR6BVrikJQ2oAwRoB32vSAXl1gvgExbWd57eecAthW1oiUKcuXle3MEi5oqAA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\catas\\Desktop\\Full Stack C#\\Incapsularea\\magazin-online\\unit-test\\unit-test.csproj",
+  "projectFilePath": "C:\\Users\\catas\\Desktop\\FullStackC#\\Incapsularea\\magazin-online\\unit-test\\unit-test.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\catas\\.nuget\\packages\\coverlet.collector\\1.3.0\\coverlet.collector.1.3.0.nupkg.sha512",
     "C:\\Users\\catas\\.nuget\\packages\\microsoft.codecoverage\\16.7.1\\microsoft.codecoverage.16.7.1.nupkg.sha512",

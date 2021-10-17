@@ -15,6 +15,10 @@ namespace magazin_online
             comenzi = new List<Comenzi>();
 
 
+
+            load();
+
+
         }
 
         public void afisare()
@@ -116,7 +120,7 @@ namespace magazin_online
 
         public void load()
         {
-            StreamReader read = new StreamReader(@"C:\Users\catas\Desktop\Full Stack C#\Incapsularea\magazin-online\magazin-online\comenzi.txt");
+            StreamReader read = new StreamReader(@"C:\Users\catas\Desktop\FullStackC#\Incapsularea\magazin-online\magazin-online\resources\comenzi.txt");
 
             string line = "";
 
@@ -162,11 +166,27 @@ namespace magazin_online
 
         public void Save()
         {
-            StreamWriter write = new StreamWriter(@"C:\Users\catas\Desktop\Full Stack C#\Incapsularea\magazin-online\magazin-online\comenzi.txt");
+            StreamWriter write = new StreamWriter(@"C:\Users\catas\Desktop\FullStackC#\Incapsularea\magazin-online\magazin-online\resources\comenzi.txt");
 
             write.Write(toSave());
 
             write.Close();
+        }
+
+        public List<Comenzi> istoriccomenzi(int clientid)
+        {
+            List<Comenzi> istoric = new List<Comenzi>();
+
+            for(int i = 0; i < comenzi.Count; i++)
+            {
+                if(comenzi[i].getIdclient() == clientid)
+                {
+                    comenzi.Add(comenzi[i]);
+                }
+            }
+
+            return istoric;
+
         }
     }
 }

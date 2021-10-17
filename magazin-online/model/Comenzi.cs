@@ -37,7 +37,7 @@ namespace magazin_online
         }
 
 
-        public int getIdclient ()
+        public int getIdclient()
         {
             return this.idclient;
         }

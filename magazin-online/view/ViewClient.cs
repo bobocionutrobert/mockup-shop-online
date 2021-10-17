@@ -45,7 +45,15 @@ namespace magazin_online
             Console.WriteLine("Apasati tasta 3 pentru a vedea produsele din cos ");
             Console.WriteLine("Apasati tasta 4 pentru a sterge un produs din cos");
             Console.WriteLine("Apasati tasta 5 pentru a edita cosul");
-            Console.WriteLine("Apasati tasta 6 pentru a finalia comanda");
+            Console.WriteLine("Apasati tasta 6 pentru a finaliza comanda");
+            Console.WriteLine("Apasati tasta 7 pentru a vedea istoricul comenzilor");
+            //istoricul comenzilor
+            //sortarea comenzilor in ordinea preturilor
+            //produsele dintr-o anumita comanda
+            //editare client profile
+
+
+
         }
                 
         public void play()
@@ -77,6 +85,9 @@ namespace magazin_online
                         break;
                     case 6:
                         finalizarecomanda();
+                        break;
+                    case 7:
+                        istoriculcomenzilor();
                         break;
                          
                 }
@@ -249,6 +260,28 @@ namespace magazin_online
             }
 
         }
+
+        public void istoriculcomenzilor()
+        {
+            controldetaliicomenzi.istoriccomenzi(comanda.getIdclient());
+        }
+
+        public void ordinecomenzi()
+        {
+
+        }
+
+        public void vizualizarecomandaprecedenta()
+        {
+
+        }
+
+        public void editareprofil()
+        {
+
+        }
+
+
     }
    
 }

@@ -120,7 +120,7 @@ namespace magazin_online
         {
             string line = "";
 
-            StreamReader read = new StreamReader(@"C:\Users\catas\Desktop\Full Stack C#\Incapsularea\magazin-online\magazin-online\detaliicomenzi.txt");
+            StreamReader read = new StreamReader(@"C:\Users\catas\Desktop\FullStackC#\Incapsularea\magazin-online\magazin-online\resources\detaliicomenzi.txt");
 
             while ((line = read.ReadLine()) != null)
             {
@@ -158,7 +158,7 @@ namespace magazin_online
 
         public void Save()
         {
-            StreamWriter write = new StreamWriter(@"C:\Users\catas\Desktop\Full Stack C#\Incapsularea\magazin-online\magazin-online\detaliicomenzi.txt");
+            StreamWriter write = new StreamWriter(@"C:\Users\catas\Desktop\FullStackC#\Incapsularea\magazin-online\magazin-online\resources\detaliicomenzi.txt");
 
             write.Write(toSave());
 
@@ -171,6 +171,9 @@ namespace magazin_online
         public List<DetaliiComenzi> getDetaliicomenzi(int orderid)
         {
             List<DetaliiComenzi> detalii = new List<DetaliiComenzi>();
+
+
+
             for(int i = 0; i < detaliicomenzi.Count; i++)
             {
                 if(detaliicomenzi[i].getIdcomanda() == orderid)
@@ -206,6 +209,17 @@ namespace magazin_online
 
 
             return detalii;
+        }
+
+        public void istoriccomenzi(int id)
+        {
+            for(int i = 0; i < detaliicomenzi.Count; i++)
+            {
+                if(detaliicomenzi[i].getId() == id)
+                {
+                    Console.WriteLine(detaliicomenzi[i].getId());
+                }
+            }
         }
     }
 }
