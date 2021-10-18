@@ -78,7 +78,7 @@ namespace unit_test
         {
             control.load();
 
-            Assert.Equal("nume", control.client(1).getNume());
+            Assert.Equal("nume2", control.client(2).getNume());
         }
         [Fact]
         public void testSave()

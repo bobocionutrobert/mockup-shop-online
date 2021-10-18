@@ -31,7 +31,7 @@ namespace unit_test
 
             control.load();
 
-            Assert.Equal(0, control.pozitie(1));
+            Assert.Equal(0, control.pozitie(2));
 
             output.WriteLine("a");
 
@@ -43,7 +43,7 @@ namespace unit_test
         {
             control.load();
 
-            Assert.Equal(1, control.comanda(1).getId());
+            Assert.Equal(10, control.comanda(1).getId());
         }
         [Fact]
 

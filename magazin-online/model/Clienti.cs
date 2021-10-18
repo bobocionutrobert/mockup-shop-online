@@ -117,7 +117,7 @@ namespace magazin_online
 
         public string toSave()
         {
-            return this.id + "," + this.nume + "," + this.parola + "," + this.email + "," + this.adresa + "," + this.tara + "," + this.nrtelefon;
+            return this.id + "," + this.email + "," + this.parola + "," + this.nume + "," + this.adresa + "," + this.tara + "," + this.nrtelefon;
         }
     }
 }

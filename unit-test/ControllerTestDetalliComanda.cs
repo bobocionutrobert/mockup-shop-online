@@ -44,7 +44,7 @@ namespace unit_test
 
             control.delete(1);
 
-            Assert.Equal(1, control.pozitie(3));
+            Assert.Equal(2, control.pozitie(3));
 
 
 

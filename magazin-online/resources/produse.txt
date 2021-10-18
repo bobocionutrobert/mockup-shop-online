@@ -1,8 +1,6 @@
 1,tricou,100,19
 2,pantof,200,20
-3,geaca,199,8
-4,bluza,59,6
-1,tricou,100,19
-2,pantof,200,20
-3,geaca,199,8
-4,bluza,59,6
+3,geaca,199,80
+4,bluza,59,60
+5,produs,10,100
+6,testprodus,20,10

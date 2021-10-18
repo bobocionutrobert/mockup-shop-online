@@ -15,8 +15,8 @@ namespace magazin_online
             clienti = new List<Clienti>();
 
 
-
             load();
+           
 
 
         }
@@ -136,7 +136,7 @@ namespace magazin_online
                 string tara = prop[5];
                 int nrtelefon = Int32.Parse(prop[6]);
 
-                Clienti client = new Clienti(id, email, parola, nume, adresa, tara, nrtelefon);
+                Clienti client = new Clienti(id,email,parola,nume,adresa,tara,nrtelefon);
 
                 clienti.Add(client);
 
