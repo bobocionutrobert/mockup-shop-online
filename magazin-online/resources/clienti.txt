@@ -1,2 +1,4 @@
 1,email,parola,nume,adresa,tara,1234
 2,emaill,parolaa,numee,adresa,taraa,2345
+1,email,parola,nume,adresa,tara,1234
+2,emaill,parolaa,numee,adresa,taraa,2345

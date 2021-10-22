@@ -31,11 +31,11 @@ namespace unit_tests
         public void testPozitie()
         {
 
+            control.load();
 
+            Assert.Equal(0, control.pozitie(1));
 
-            Assert.Equal(-1, control.pozitie(1));
-
-            output.WriteLine("a");
+            
 
 
 
@@ -47,8 +47,9 @@ namespace unit_tests
         {
 
 
+            control.load();
 
-            Assert.Equal(0, control.pozitie(1));
+            Assert.Equal(1, control.pozitie(2));
 
             output.WriteLine("a");
 
@@ -62,14 +63,14 @@ namespace unit_tests
         public void testAdd()
         {
             //Preconditie
-            Produs a = new Produs(10, "ciorap",4.99,10);
+            Produs a = new Produs(10, "telefon",4.99,10);
 
             //ACTIUNE
             control.add(a);
 
 
             //Rezultat
-            Assert.Equal(true, control.produs("ciorap") != null);
+            Assert.Equal(true, control.produs("telefon") != null);
         }
 
 
@@ -79,11 +80,11 @@ namespace unit_tests
 
             for (int i = 0; i < 100; i++)
             {
-                Produs a = new Produs(10, "ciorap", 4.99, 10);
+                Produs a = new Produs(10, "telefon", 4.99, 10);
 
                 control.add(a);
 
-                Assert.Equal(false, control.produs("ciorap"+i) != null);
+                Assert.Equal(false, control.produs("telefon"+i) != null);
             }
 
 
@@ -104,17 +105,17 @@ namespace unit_tests
         public void testUpdateStoc1()
         {
             control.updateStoc(2, 20);
-            control.updateStoc(2, 10);
+            
 
-            Assert.Equal(10, control.produs("pantalon").getStoc());
+            Assert.Equal(20,control.produs("pantof").getStoc());
         }
         [Fact]
         public void testUpdateStoc2()
         {
-            control.updateStoc(2, 20-10);
+            control.updateStoc(2, 50);
            
 
-            Assert.Equal(10, control.produs("pantalon").getStoc());
+            Assert.Equal(50, control.produs("pantof").getStoc());
         }
         [Fact]
         public void testload()
@@ -153,7 +154,9 @@ namespace unit_tests
         {
             control.load();
 
-            output.WriteLine(control.produsdupaid(1).getNume());
+            //output.WriteLine(control.produsdupaid(6).getNume());
+
+            Assert.Equal("pantof", control.produsdupaid(2).getNume());
 
             
         }

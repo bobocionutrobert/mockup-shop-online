@@ -56,7 +56,7 @@ namespace unit_test
         {
             control.load();
 
-            Assert.Equal(2, control.detaliicomanda(2).getId());
+            output.WriteLine(control.afisare());
         }
         [Fact]
         public void testSave()
@@ -81,19 +81,49 @@ namespace unit_test
 
 
 
-            List<DetaliiComenzi> detaliiComenzi = c.getDetaliicomenzi(1);
+            List<DetaliiComenzi> detalii = control.getDetaliicomenzi(1);
 
+            for(int i = 0; i < detalii.Count; i++)
+            {
+                Assert.Equal(1, detalii[i].getId());
+                output.WriteLine(detalii[i].getId().ToString());
+            }
+            
 
-
-            for(int i=0; i < detaliiComenzi.Count; i++)
+            /*for(int i=0; i < detaliiComenzi.Count; i++)
             {
                 output.WriteLine(detaliiComenzi[i].descriere());
             }
-
+            */
 
 
             
 
+        }
+        [Fact]
+        public void testDetaliiComenzi2()
+        {
+
+            control.load();
+
+            ControllerDetaliiComenzi c = new ControllerDetaliiComenzi();
+
+
+
+            List<DetaliiComenzi> detalii = control.getDetaliicomenzi(2); // id comanda = 2
+
+            for (int i = 0; i < detalii.Count; i++)
+            {
+                
+                Assert.Equal(1, detalii[i].getId()); // comanda 2, id client =1
+
+                Assert.Equal(3231, detalii[i].getIdprodus()); // comanda 2, id produs = 3231
+
+                Assert.Equal(4221, detalii[i].getPret()); //comanda 2, pret total 4211
+
+
+                
+            }
         }
 
     }

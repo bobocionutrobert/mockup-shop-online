@@ -33,7 +33,7 @@ namespace unit_test
         [Fact]
         public void testPozitie2()
         {
-            Assert.Equal(-1, control.pozitie(1));
+            Assert.Equal(0, control.pozitie(1));
         }
         [Fact]
         public void testPozitie3()
@@ -56,7 +56,7 @@ namespace unit_test
 
             control.delete(1);
 
-            Assert.Equal(3, control.pozitie(1));
+            Assert.Equal(1, control.pozitie(1));
 
 
         }
@@ -69,7 +69,7 @@ namespace unit_test
             control.add(a);
             control.add(b);
 
-            control.updateNume(1, "numenou");
+            control.updateNume(2, "numenou");
 
             Assert.Equal("numenou", a.getNume());
         }
@@ -78,7 +78,7 @@ namespace unit_test
         {
             control.load();
 
-            Assert.Equal("nume2", control.client(2).getNume());
+            Assert.Equal("numee", control.client(2).getNume());
         }
         [Fact]
         public void testSave()

@@ -21,12 +21,15 @@ namespace magazin_online
 
         }
 
-        public void afisare()
+        public string afisare()
         {
-            for(int i = 0; i < comenzi.Count; i++)
+            string text = "";
+            for (int i = 0; i < comenzi.Count; i++)
             {
-                Console.WriteLine(comenzi[i].descriere());
+                text += comenzi[i].descriere() + "\n";
             }
+
+            return text;
         }
 
         public int pozitie(int id)
@@ -177,11 +180,11 @@ namespace magazin_online
         {
             List<Comenzi> istoric = new List<Comenzi>();
 
-            for(int i = 0; i < comenzi.Count; i++)
+            for (int i = 0; i < comenzi.Count; i++)
             {
-                if(comenzi[i].getIdclient() == clientid)
+                if (comenzi[i].getIdclient() == clientid)
                 {
-                    comenzi.Add(comenzi[i]);
+                    istoric.Add(comenzi[i]);
                 }
             }
 
