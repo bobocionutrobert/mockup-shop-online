@@ -211,7 +211,7 @@ namespace magazin_online
                     if (cantitatenoua >= 0)
                     {
                         detalii[i].setCantitate(cantitatenoua);
-                        detalii[i].setPret(detalii[i].getCantitate()*detalii[i].getPret());
+                        detalii[i].setPret(detalii[i].getCantitate()*detalii[i].getPret()); //update pret cos ??
                         Console.WriteLine("Cosul a fost editat");
                     }
                     else
@@ -263,7 +263,13 @@ namespace magazin_online
 
         public void istoriculcomenzilor()
         {
-            controldetaliicomenzi.istoriccomenzi(comanda.getIdclient());
+            List<DetaliiComenzi> istoric = controldetaliicomenzi.getDetaliicomenzi(comanda.getIdclient());
+
+            for(int i = 0; i < istoric.Count; i++)
+            {
+                istoric.Add(istoric[i]);
+                Console.WriteLine(istoric[i].descriere());
+            }
         }
 
         public void ordinecomenzi()
