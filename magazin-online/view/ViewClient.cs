@@ -158,9 +158,9 @@ namespace magazin_online
 
             for (int i = 0; i < detalii.Count; i++)
             {
-                string text = "Id produs : " + detalii[i].getId() + "\n";
+                string text = "Id produs : " + detalii[i].getIdprodus() + "\n";
 
-                text += "Numele produsului : " + controlproduse.produsdupaid(detalii[i].getId()).getNume() + "\n";
+                text += "Numele produsului : " + controlproduse.produsdupaid(detalii[i].getIdprodus()).getNume() + "\n";
 
                 text += "Cantitate :  " + detalii[i].getCantitate() + "\n";
 
@@ -184,8 +184,8 @@ namespace magazin_online
             {
                 if (controlproduse.produsdupaid(detalii[i].getId()).getNume().Equals(stergeprodus))
                 {
-                    controldetaliicomenzi.delete(detalii[i].getId());
-                    Console.WriteLine($"Produsul {controlproduse.produsdupaid(detalii[i].getId()).getNume()} a fost sters din cosul de cumparaturi");
+                    controldetaliicomenzi.delete(detalii[i].getIdprodus());
+                    Console.WriteLine($"Produsul {controlproduse.produsdupaid(detalii[i].getIdprodus()).getNume()} a fost sters din cosul de cumparaturi");
                 }
             }
         }
@@ -200,7 +200,7 @@ namespace magazin_online
 
             for(int i = 0; i < detalii.Count; i++)
             {
-                if (controlproduse.produsdupaid(detalii[i].getId()).getNume().Equals(modificacantitateprodus))
+                if (controlproduse.produsdupaid(detalii[i].getIdprodus()).getNume().Equals(modificacantitateprodus))
                 {
                     Console.WriteLine($"Aveti in cos {detalii[i].getCantitate()} produse de acel tip in cos");
 
@@ -211,7 +211,7 @@ namespace magazin_online
                     if (cantitatenoua >= 0)
                     {
                         detalii[i].setCantitate(cantitatenoua);
-
+                        detalii[i].setPret(detalii[i].getCantitate()*detalii[i].getPret());
                         Console.WriteLine("Cosul a fost editat");
                     }
                     else

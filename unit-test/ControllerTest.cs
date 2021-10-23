@@ -153,10 +153,14 @@ namespace unit_tests
         public void testprodusdupaid()
         {
             control.load();
-
+            //tricou,pantof,geaca,bluza,produs,testprodus
             //output.WriteLine(control.produsdupaid(6).getNume());
-
+            Assert.Equal("tricou", control.produsdupaid(1).getNume());
             Assert.Equal("pantof", control.produsdupaid(2).getNume());
+            Assert.Equal("geaca", control.produsdupaid(3).getNume());
+            Assert.Equal("bluza", control.produsdupaid(4).getNume());
+            Assert.Equal("produs", control.produsdupaid(5).getNume());
+            Assert.Equal("testprodus", control.produsdupaid(6).getNume());
 
             
         }

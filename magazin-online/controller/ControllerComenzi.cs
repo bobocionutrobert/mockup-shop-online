@@ -60,7 +60,7 @@ namespace magazin_online
         {
             for (int i = 0; i < comenzi.Count; i++)
             {
-                if (comenzi[i].getId().Equals(id) == true)
+                if (comenzi[i].getIdclient() == id)
                 {
                     return comenzi[i];
                 }

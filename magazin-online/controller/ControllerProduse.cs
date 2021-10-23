@@ -127,6 +127,8 @@ namespace magazin_online
             }
         }
 
+        
+
         public bool updateStoc(int id, int stocnou)
 
         {
