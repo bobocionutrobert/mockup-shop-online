@@ -174,33 +174,47 @@ namespace magazin_online
 
         public void stergeredincos()
         {
-            Console.WriteLine("Va rugam introduceti numele produsului pe care doriti sa il stergeti din cos");
+            Console.WriteLine("introduceti numele produsului pe care doriti sa il stergeti din cos");
 
-            string stergeprodus = Console.ReadLine();
+            string numeprodus = Console.ReadLine();
+
+            Produs produs = controlproduse.produs(numeprodus);
 
             List<DetaliiComenzi> detalii = controldetaliicomenzi.getDetaliicomenzi(comanda.getId());
 
             for(int i = 0; i < detalii.Count; i++)
             {
-                if (controlproduse.produsdupaid(detalii[i].getId()).getNume().Equals(stergeprodus))
+                if (controlproduse.produsdupaid(detalii[i].getIdprodus()).getNume().Equals(numeprodus))
                 {
-                    controldetaliicomenzi.delete(detalii[i].getIdprodus());
-                    Console.WriteLine($"Produsul {controlproduse.produsdupaid(detalii[i].getIdprodus()).getNume()} a fost sters din cosul de cumparaturi");
+                    controldetaliicomenzi.delete(detalii[i].getId());
+                   
+                }
+                else
+                {
+                    Console.WriteLine("Produsul nu exista in cos");
                 }
             }
+            
+           
         }
 
         public void editarecos()
         {
             Console.WriteLine("Va rugam introduceti numele produsului din cos a carui cantitate doriti sa o modificati");
 
-            string modificacantitateprodus = Console.ReadLine();
+            string modificacantitateprodusdupanume = Console.ReadLine();
+
+            Produs produs = controlproduse.produs(modificacantitateprodusdupanume);
+
+
 
             List<DetaliiComenzi> detalii = controldetaliicomenzi.getDetaliicomenzi(comanda.getId());
 
             for(int i = 0; i < detalii.Count; i++)
             {
-                if (controlproduse.produsdupaid(detalii[i].getIdprodus()).getNume().Equals(modificacantitateprodus))
+                if (controlproduse.produsdupaid(detalii[i].getIdprodus()).getNume().Equals(modificacantitateprodusdupanume))
+
+
                 {
                     Console.WriteLine($"Aveti in cos {detalii[i].getCantitate()} produse de acel tip in cos");
 
@@ -208,11 +222,30 @@ namespace magazin_online
 
                     int cantitatenoua = Int32.Parse(Console.ReadLine());
 
-                    if (cantitatenoua >= 0)
+                    if (cantitatenoua > 0)
                     {
+                        int cantiateVeche = detalii[i].getCantitate();
+
+                   
+
+
+                        controlproduse.updateStocdupanume(modificacantitateprodusdupanume,(produs.getStoc()+cantiateVeche)-cantitatenoua);
+
+
                         detalii[i].setCantitate(cantitatenoua);
-                        detalii[i].setPret(detalii[i].getCantitate()*detalii[i].getPret()); //update pret cos ??
+
+
+                        detalii[i].setPret(cantitatenoua * (int)produs.getPret());
+
+
+
+                       
                         Console.WriteLine("Cosul a fost editat");
+                    }
+                    else if (cantitatenoua == 0)
+                    {
+                        controldetaliicomenzi.delete(detalii[i].getId());
+                        Console.WriteLine("Produsul a fost sters din cos");
                     }
                     else
                     {
@@ -267,7 +300,7 @@ namespace magazin_online
 
             for(int i = 0; i < istoric.Count; i++)
             {
-                istoric.Add(istoric[i]);
+                
                 Console.WriteLine(istoric[i].descriere());
             }
         }

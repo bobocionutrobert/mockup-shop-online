@@ -168,7 +168,7 @@ namespace magazin_online
         //orderId
         //=>toate orderDetails care are orderId
 
-        public List<DetaliiComenzi> getDetaliicomenzi(int orderid)
+        public List<DetaliiComenzi> getDetaliicomenzi(int id)
         {
             List<DetaliiComenzi> detalii = new List<DetaliiComenzi>();
 
@@ -176,7 +176,7 @@ namespace magazin_online
 
             for(int i = 0; i < detaliicomenzi.Count; i++)
             {
-                if(detaliicomenzi[i].getIdcomanda() == orderid)
+                if(detaliicomenzi[i].getId() == id)
                 {
 
 
@@ -211,13 +211,13 @@ namespace magazin_online
             return detalii;
         }
 
-        public void istoriccomenzi(int id)
+        public void istoriccomenzi(int orderid)
         {
             for(int i = 0; i < detaliicomenzi.Count; i++)
             {
-                if(detaliicomenzi[i].getId() == id)
+                if(detaliicomenzi[i].getIdcomanda() == orderid)
                 {
-                    Console.WriteLine(detaliicomenzi[i].getId());
+                    Console.WriteLine(detaliicomenzi[i].getIdcomanda());
                 }
             }
         }

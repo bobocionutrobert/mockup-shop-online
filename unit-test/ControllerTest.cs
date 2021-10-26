@@ -112,10 +112,10 @@ namespace unit_tests
         [Fact]
         public void testUpdateStoc2()
         {
-            control.updateStoc(2, 50);
+            control.updateStoc(1, 50);
            
 
-            Assert.Equal(50, control.produs("pantof").getStoc());
+            Assert.Equal(50, control.produs("tricou").getStoc());
         }
         [Fact]
         public void testload()
@@ -163,6 +163,32 @@ namespace unit_tests
             Assert.Equal("testprodus", control.produsdupaid(6).getNume());
 
             
+        }
+
+        [Fact]
+
+        public void testprodusdupanume()
+        {
+            control.load();
+
+            Assert.Equal("tricou", control.produs("tricou").getNume());
+        }
+        [Fact]
+        public void testpozitieduapnume()
+        {
+            control.load();
+
+            Assert.Equal(0, control.pozitiedupanume("tricou"));
+        }
+        [Fact]
+        public void updatestocdupanume()
+        {
+            control.load();
+
+            control.updateStocdupanume("tricou", 20);
+
+            Assert.Equal(20, control.produs("tricou").getStoc());
+
         }
     }
 }

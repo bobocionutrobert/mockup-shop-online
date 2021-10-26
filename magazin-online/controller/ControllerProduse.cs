@@ -144,8 +144,36 @@ namespace magazin_online
                 return true;
             }
         }
+        public int pozitiedupanume(string produs)
+        {
+            for(int i = 0; i < produse.Count; i++)
+            {
+                if (produse[i].getNume().Equals(produs))
+                {
+                    return i;
+                }
+            }
+
+            return -1;
+        }
 
         
+        public bool updateStocdupanume(string numeprodus, int stocnou)
+        {
+            int poz = pozitiedupanume(numeprodus);
+
+            if(poz == 1)
+            {
+                return false;
+            }   
+            else
+            {
+                produse[poz].setStoc(stocnou);
+
+                return true;
+            }
+           
+        }
 
         public void load()
         {
