@@ -17,6 +17,7 @@ namespace magazin_online
         private ControllerProduse controlproduse;
         private ControllerComenzi controlcomenzi;
         private ControllerDetaliiComenzi controldetaliicomenzi;
+        private ControllerClienti controlclienti;
 
         private Comenzi comanda;
         
@@ -28,7 +29,7 @@ namespace magazin_online
             controlproduse = new ControllerProduse();
             controlcomenzi = new ControllerComenzi();
             controldetaliicomenzi = new ControllerDetaliiComenzi();
-
+            controlclienti = new ControllerClienti();
 
             comanda = new Comenzi(controlcomenzi.nextid(), clienti.getId(), 0, "");
 
@@ -48,8 +49,9 @@ namespace magazin_online
             Console.WriteLine("Apasati tasta 5 pentru a edita cosul");
             Console.WriteLine("Apasati tasta 6 pentru a finaliza comanda");
             Console.WriteLine("Apasati tasta 7 pentru a vedea istoricul comenzilor");
-            Console.WriteLine("Apasati tasta 8 pentur a vedea ultima comanda plasata");
+            Console.WriteLine("Apasati tasta 8 pentru a vedea ultima comanda plasata");
             Console.WriteLine("Apasati tasta 9 pentru a vedea comenzile in ordinea preturilor");
+            Console.WriteLine("Apasati tasta 0 pentru a edita profilul dumneaovastra");
             //istoricul comenzilor
             //sortarea comenzilor in ordinea preturilor
             //produsele dintr-o anumita comanda
@@ -98,6 +100,9 @@ namespace magazin_online
                     case 9:
                         vizualizareordinecomenzi();
                         break;
+                    case 0:
+                        editareprofil();
+                        break;
                          
                 }
 
@@ -105,6 +110,21 @@ namespace magazin_online
             }
 
         }
+
+        public void meniuUpdateprofil()
+        {
+            Console.WriteLine("===================Meniu Update Client================");
+            Console.WriteLine($"Bun venit, {clienti.getNume()}");
+            Console.WriteLine("Apasati tasta 1 pentru a edita numele");
+            Console.WriteLine("Apasati tasta 2 pentru a edita email-ul");
+            Console.WriteLine("Apasati tasta 3 pentru a edita parola");
+            Console.WriteLine("Apasati tasta 4 pentru a edita adresa");
+            Console.WriteLine("Apasati tasta 5 pentru a edita tara");
+            Console.WriteLine("Apasati tasta 6 pentru a edita numarul de telefon");
+        }
+
+
+        
         public void adaugareincos()
         {
 
@@ -343,7 +363,40 @@ namespace magazin_online
 
         public void editareprofil()
         {
+            meniuUpdateprofil();
 
+            Console.WriteLine("Alegeti ce doriti sa modificati din profil ");
+
+            int alegere = Int32.Parse(Console.ReadLine());
+
+            switch (alegere)
+            {
+                case 1:
+                    
+                    controlclienti.updateNume(clienti.getId());
+                    controlclienti.Save();
+                    break;
+                case 2:
+                    
+                    controlclienti.updateEmail(clienti.getId());
+                    break;
+
+                case 3:
+                    
+                    controlclienti.updateParola(clienti.getId());
+                    break;
+                case 4:
+                  
+                    controlclienti.updateAdresa(clienti.getId());
+                    break;
+                case 5:
+                    
+                    controlclienti.updateTara(clienti.getId());
+                    break;
+                case 6:
+                    controlclienti.updateNrTelefon(clienti.getId());
+                    break;
+            }
         }
 
 
