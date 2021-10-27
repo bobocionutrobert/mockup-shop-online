@@ -63,15 +63,52 @@ namespace unit_test
         [Fact]
         public void testUpdate()
         {
-            Clienti a = new Clienti(1, "email", "parola", "nume", "adresa", "tara", 21382101); //0
-            Clienti b = new Clienti(2, "email1", "parola2", "nume2", "adresa2", "tara2", 213821011); //1
-
-            control.add(a);
-            control.add(b);
+            control.load();
 
             control.updateNume(2, "numenou");
 
-            Assert.Equal("numenou", a.getNume());
+            Assert.Equal("numenou", control.client(2).getNume());
+        }
+
+        [Fact]
+        public void testUpdateEmail()
+        {
+            control.load();
+
+            control.updateEmail(2, "emailupdate");
+
+            Assert.Equal("emailupdate", control.client(2).getEmail());
+        }
+
+        [Fact]
+
+        public void testUpdateParola()
+        {
+            control.load();
+
+            control.updateParola(2, "updateparola");
+
+            Assert.Equal("updateparola", control.client(2).getParola());
+        }
+
+        [Fact]
+        public void testUpdateAdresa()
+        {
+            control.load();
+
+            control.updateAdresa(2, "updateadresa");
+
+            Assert.Equal("updateadresa", control.client(2).getAdresa());
+        }
+
+        [Fact]
+        public void testUpdateTelefon()
+        {
+            control.load();
+
+            control.updateNrTelefon(2, 21382193);
+
+            Assert.Equal(21382193, control.client(2).getNrtelefon());
         }
         [Fact]
         public void testload()

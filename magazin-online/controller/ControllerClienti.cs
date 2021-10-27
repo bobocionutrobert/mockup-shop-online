@@ -116,6 +116,65 @@ namespace magazin_online
             }
         }
 
+        public bool updateEmail(int id, string emailnou)
+        {
+            int poz = pozitie(id);
+
+            if (poz == -1)
+            {
+                return false;
+            }
+            else
+            {   
+                clienti[poz].setEmail(emailnou);
+                return true;
+            }
+        }
+
+        public bool updateParola(int id, string parolanoua)
+        {
+            int poz = pozitie(id);
+
+            if(poz == -1)
+            {
+                return false;
+            }
+            else
+            {
+                clienti[poz].setParola(parolanoua);
+                return true;
+            }
+
+        }
+
+        public bool updateAdresa(int id, string adresanoua)
+        {
+            int poz = pozitie(id);
+            if (poz == -1)
+            {
+                return false;
+            }
+            else
+            {
+                clienti[poz].setAdersa(adresanoua);
+                return false;
+            }
+        }
+
+        public bool updateNrTelefon(int id, int telefonnou)
+        {
+            int poz = pozitie(id);
+            if (poz == -1)
+            {
+                return false;
+            }
+            else
+            {
+                clienti[poz].setNrtelefon(telefonnou);
+                return true;
+            }
+        }
+
 
         public void load()
         {

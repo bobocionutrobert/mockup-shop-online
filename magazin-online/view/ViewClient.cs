@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace magazin_online
@@ -47,6 +48,8 @@ namespace magazin_online
             Console.WriteLine("Apasati tasta 5 pentru a edita cosul");
             Console.WriteLine("Apasati tasta 6 pentru a finaliza comanda");
             Console.WriteLine("Apasati tasta 7 pentru a vedea istoricul comenzilor");
+            Console.WriteLine("Apasati tasta 8 pentur a vedea ultima comanda plasata");
+            Console.WriteLine("Apasati tasta 9 pentru a vedea comenzile in ordinea preturilor");
             //istoricul comenzilor
             //sortarea comenzilor in ordinea preturilor
             //produsele dintr-o anumita comanda
@@ -88,6 +91,12 @@ namespace magazin_online
                         break;
                     case 7:
                         istoriculcomenzilor();
+                        break;
+                    case 8:
+                        ultimacomanda();
+                        break;
+                    case 9:
+                        vizualizareordinecomenzi();
                         break;
                          
                 }
@@ -298,6 +307,7 @@ namespace magazin_online
         {
             List<DetaliiComenzi> istoric = controldetaliicomenzi.getDetaliicomenzi(comanda.getIdclient());
 
+            
             for(int i = 0; i < istoric.Count; i++)
             {
                 
@@ -305,13 +315,29 @@ namespace magazin_online
             }
         }
 
-        public void ordinecomenzi()
+        public void ultimacomanda()
         {
+
+            List<DetaliiComenzi> istoric = controldetaliicomenzi.getDetaliicomenzi(comanda.getIdclient());
+
+           
+
+             Console.WriteLine(istoric[istoric.Count-1].descriere());
+            
 
         }
 
-        public void vizualizarecomandaprecedenta()
+        public void vizualizareordinecomenzi()
         {
+
+            List<DetaliiComenzi> istoric = controldetaliicomenzi.getDetaliicomenzi(comanda.getIdclient());
+
+
+
+           foreach(var lista in istoric.OrderByDescending(comanda => comanda.getPret()))
+           {
+                Console.WriteLine(lista.descriere());
+           }
 
         }
 
