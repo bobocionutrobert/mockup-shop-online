@@ -38,12 +38,12 @@ namespace unit_test
         [Fact]
         public void testPozitie3()
         {
-            Clienti a = new Clienti(1, "email", "parola", "nume", "adresa", "tara", 21382101); //0
-            Clienti b = new Clienti(2, "email1", "parola2", "nume2", "adresa2", "tara2", 213821011); //1
-            Clienti c = new Clienti(3, "email3", "parola3", "nume3", "adresa3", "tara3", 2138210121); //2
-            Clienti d = new Clienti(4, "email4", "parola4", "nume4", "adresa4", "tara4", 398382101); //3
-            Clienti e = new Clienti(5, "email5", "parola5", "nume5", "adresa5", "tara5", 993821014); //4
-            Clienti f = new Clienti(6, "email6", "parola6", "nume6", "adresa6", "tara6", 2138210123); //5
+            Clienti a = new Clienti(1, "email", "parola", "nume", "adresa", "tara", 21382101,false); //0
+            Clienti b = new Clienti(2, "email1", "parola2", "nume2", "adresa2", "tara2", 213821011,false); //1
+            Clienti c = new Clienti(3, "email3", "parola3", "nume3", "adresa3", "tara3", 2138210121,false); //2
+            Clienti d = new Clienti(4, "email4", "parola4", "nume4", "adresa4", "tara4", 398382101,false); //3
+            Clienti e = new Clienti(5, "email5", "parola5", "nume5", "adresa5", "tara5", 993821014,false); //4
+            Clienti f = new Clienti(6, "email6", "parola6", "nume6", "adresa6", "tara6", 2138210123,false); //5
 
             control.add(a);
             control.add(b);
@@ -65,7 +65,9 @@ namespace unit_test
         {
             control.load();
 
-            control.updateNume(2, "numenou");
+            
+
+            control.updateNume(2,"numenou");
 
             Assert.Equal("numenou", control.client(2).getNume());
         }
@@ -74,8 +76,8 @@ namespace unit_test
         public void testUpdateEmail()
         {
             control.load();
-
-            control.updateEmail(2, "emailupdate");
+            
+            control.updateEmail(2,"emailupdate");
 
             Assert.Equal("emailupdate", control.client(2).getEmail());
         }
@@ -86,7 +88,7 @@ namespace unit_test
         {
             control.load();
 
-            control.updateParola(2, "updateparola");
+            control.updateParola(2,"updateparola");
 
             Assert.Equal("updateparola", control.client(2).getParola());
         }
@@ -96,7 +98,7 @@ namespace unit_test
         {
             control.load();
 
-            control.updateAdresa(2, "updateadresa");
+            control.updateAdresa(2,"updateadresa");
 
             Assert.Equal("updateadresa", control.client(2).getAdresa());
         }
@@ -106,9 +108,9 @@ namespace unit_test
         {
             control.load();
 
-            control.updateNrTelefon(2, 21382193);
+            control.updateNrTelefon(2, 3213819);
 
-            Assert.Equal(21382193, control.client(2).getNrtelefon());
+            Assert.Equal(3213819, control.client(2).getNrtelefon());
         }
         [Fact]
         public void testload()

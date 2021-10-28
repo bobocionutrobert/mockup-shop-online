@@ -112,6 +112,23 @@ namespace magazin_online
             }
         }
 
+        public bool deletedupanume(string numeprodus)
+        {
+            int poz = pozitiedupanume(numeprodus);
+
+            if(poz == -1)
+            {
+                Console.WriteLine("Produsul nu exista in lista");
+                return false;
+            }
+            else
+            {
+                produse.RemoveAt(poz);
+                Console.WriteLine("Produsul a fost sters din lista");
+                return true;
+            }
+        }
+
         public bool updatePret(int id, int pretnou)
         {
             int poz = pozitie(id);

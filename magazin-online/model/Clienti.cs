@@ -13,13 +13,14 @@ namespace magazin_online
         private string adresa;
         private string tara;
         private int nrtelefon;
+        private bool admin;
 
         public Clienti()
         {
 
         }
 
-        public Clienti(int id, string email, string parola, string nume, string adresa, string tara, int nrtelefon)
+        public Clienti(int id, string email, string parola, string nume, string adresa, string tara, int nrtelefon, bool admin)
         {
             this.id = id;
             this.email = email;
@@ -28,6 +29,7 @@ namespace magazin_online
             this.adresa = adresa;
             this.tara = tara;
             this.nrtelefon = nrtelefon;
+            this.admin = admin;
         }
 
         public int getId()
@@ -98,6 +100,16 @@ namespace magazin_online
         public void setNrtelefon(int nrtelefon)
         {
             this.nrtelefon = nrtelefon;
+        }
+
+        public bool getAdmin()
+        {
+            return this.admin;
+        }
+
+        public void setAdmin(bool admin)
+        {
+            this.admin = admin;
         }
 
         public string descriere()

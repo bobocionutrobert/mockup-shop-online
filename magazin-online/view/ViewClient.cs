@@ -353,11 +353,28 @@ namespace magazin_online
             List<DetaliiComenzi> istoric = controldetaliicomenzi.getDetaliicomenzi(comanda.getIdclient());
 
 
+            for(int i = 0; i < istoric.Count-1; i++)
+            {
+                for(int j = i+1; j < istoric.Count; j++)
+                {
+                    if(istoric[i].getPret() > istoric[j].getPret())
+                    {
+                        DetaliiComenzi aux = istoric[i];
+                        istoric[i] = istoric[j];
+                        istoric[j] = aux;
+                    }
 
-           foreach(var lista in istoric.OrderByDescending(comanda => comanda.getPret()))
-           {
-                Console.WriteLine(lista.descriere());
-           }
+                }
+
+            }
+
+
+
+            foreach(DetaliiComenzi detalii in istoric)
+            {
+                Console.WriteLine(detalii.descriere());
+            }
+          
 
         }
 
@@ -372,29 +389,41 @@ namespace magazin_online
             switch (alegere)
             {
                 case 1:
-                    
-                    controlclienti.updateNume(clienti.getId());
+                    Console.WriteLine("Introduceti un numele nou : ");
+                    string numenou = Console.ReadLine();
+                    controlclienti.updateNume(clienti.getId(),numenou);
                     controlclienti.Save();
                     break;
                 case 2:
-                    
-                    controlclienti.updateEmail(clienti.getId());
+                    Console.WriteLine("Introduceti emailul nou : ");
+                    string emailnou = Console.ReadLine();
+                    controlclienti.updateEmail(clienti.getId(),emailnou);
+                    controlclienti.Save();
                     break;
 
                 case 3:
-                    
-                    controlclienti.updateParola(clienti.getId());
+                    Console.WriteLine("Introduceti parola noua : ");
+                    string parolanoua = Console.ReadLine();
+                    controlclienti.updateParola(clienti.getId(),parolanoua);
+                    controlclienti.Save();
                     break;
                 case 4:
-                  
-                    controlclienti.updateAdresa(clienti.getId());
+                    Console.WriteLine("Introduceti o adresa noua : ");
+                    string adresanoua = Console.ReadLine();
+                    controlclienti.updateAdresa(clienti.getId(),adresanoua);
+                    controlclienti.Save();
                     break;
                 case 5:
-                    
-                    controlclienti.updateTara(clienti.getId());
+                    Console.WriteLine(" Introduceti numele tarii : ");
+                    string taranoua = Console.ReadLine();
+                    controlclienti.updateTara(clienti.getId(),taranoua);
+                    controlclienti.Save();
                     break;
                 case 6:
-                    controlclienti.updateNrTelefon(clienti.getId());
+                    Console.WriteLine("introduceti numarul de telefon:");
+                    int telefonnou = Int32.Parse(Console.ReadLine());
+                    controlclienti.updateNrTelefon(clienti.getId(),telefonnou);
+                    controlclienti.Save();
                     break;
             }
         }

@@ -101,7 +101,7 @@ namespace magazin_online
             }
         }
 
-        public bool updateNume(int id)
+        public bool updateNume(int id, string numenou)
         {
             int poz = pozitie(id);
 
@@ -111,15 +111,14 @@ namespace magazin_online
             }
             else
             {
-                Console.WriteLine("Introduceti un numele nou : ");
-                string numenou = Console.ReadLine();
+                
                 clienti[poz].setNume(numenou);
                 Console.WriteLine("Numele profilului a fost modificat");
                 return true;
             }
         }
 
-        public bool updateEmail(int id)
+        public bool updateEmail(int id,string emailnou)
         {
             int poz = pozitie(id);
 
@@ -129,14 +128,13 @@ namespace magazin_online
             }
             else
             {
-                Console.WriteLine("Introduceti emailul nou : ");
-                string emailnou = Console.ReadLine();
+                
                 clienti[poz].setEmail(emailnou);
                 return true;
             }
         }
 
-        public bool updateParola(int id)
+        public bool updateParola(int id,string parolanoua)
         {
             int poz = pozitie(id);
 
@@ -146,8 +144,7 @@ namespace magazin_online
             }
             else
             {
-                Console.WriteLine("Introduceti parola noua : ");
-                string parolanoua = Console.ReadLine();
+                
 
                 clienti[poz].setParola(parolanoua);
                 return true;
@@ -155,7 +152,7 @@ namespace magazin_online
 
         }
 
-        public bool updateAdresa(int id)
+        public bool updateAdresa(int id,string adresanoua)
         {
             int poz = pozitie(id);
             if (poz == -1)
@@ -164,14 +161,13 @@ namespace magazin_online
             }
             else
             {
-                Console.WriteLine("Introduceti o adresa noua : ");
-                string adresanoua = Console.ReadLine();
+                
                 clienti[poz].setAdersa(adresanoua);
                 return false;
             }
         }
 
-        public bool updateTara(int id)
+        public bool updateTara(int id,string taranoua)
         {
             int poz = pozitie(id);
             if (poz == -1)
@@ -180,14 +176,13 @@ namespace magazin_online
             }
             else
             {
-                Console.WriteLine(" Introduceti numele tarii : ");
-                string taranoua = Console.ReadLine();
+               
                 clienti[poz].setTara(taranoua);
                 return true;
             }
         }
 
-        public bool updateNrTelefon(int id)
+        public bool updateNrTelefon(int id,int telefonnou)
         {
             int poz = pozitie(id);
             if (poz == -1)
@@ -196,8 +191,7 @@ namespace magazin_online
             }
             else
             {
-                Console.WriteLine("introduceti numarul de telefon:");
-                int telefonnou = Int32.Parse(Console.ReadLine());
+                
                 clienti[poz].setNrtelefon(telefonnou);
                 return true;
             }
@@ -222,8 +216,9 @@ namespace magazin_online
                 string adresa = prop[4];
                 string tara = prop[5];
                 int nrtelefon = Int32.Parse(prop[6]);
+                bool admin = bool.Parse(prop[7]);
 
-                Clienti client = new Clienti(id,email,parola,nume,adresa,tara,nrtelefon);
+                Clienti client = new Clienti(id,email,parola,nume,adresa,tara,nrtelefon,admin);
 
                 clienti.Add(client);
 

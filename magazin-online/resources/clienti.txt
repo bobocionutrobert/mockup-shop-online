@@ -1,4 +1,8 @@
-1,email,parola,nume,adresa,tara,1234
-2,emaill,parolaa,numee,adresa,taraa,2345
-1,email,parola,nume,adresa,tara,1234
-2,emaill,parolaa,numee,adresa,taraa,2345
+1,email,parola,nume,adresa,tara,1234,true
+2,emaill,parolaa,numee,adresa,taraa,2345,false
+1,email,parola,nume,adresa,tara,1234,false
+2,emaill,parolaa,numee,adresa,taraa,2345,false
+1,email,parola,nume,adresa,tara,1234,false
+2,emaill,parolaa,numee,adresa,taraa,2345,false
+1,email,parola,nume,adresa,tara,1234,false
+2,emaill,parolaa,numee,adresa,taraa,2345,false

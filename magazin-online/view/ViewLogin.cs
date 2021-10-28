@@ -71,14 +71,26 @@ namespace magazin_online
 
             Clienti p = control.returnClienti(email, password); ;
 
-            if (p != null)
+
+            if(p != null)
             {
+                if (p.getAdmin() == true)
+                {
+                    ViewAdmin v = new ViewAdmin(p);
 
-                ViewClient c = new ViewClient(p);
+                    v.play();
 
-                c.play();
+                    Console.WriteLine("Autentificat cu rolul de admin");
 
-                Console.WriteLine("autentificat cu rolul de client");
+                }
+                else if (p.getAdmin() == false)
+                {
+                    ViewClient c = new ViewClient(p);
+
+                    c.play();
+
+                    Console.WriteLine("autentificat cu rolul de client");
+                }
             }
             else
             {
@@ -109,7 +121,9 @@ namespace magazin_online
             string taranoua = Console.ReadLine();
             Console.WriteLine("Introduceti numarul de telefon : ");
             int nrtelefonnou = Int32.Parse(Console.ReadLine());
-            Clienti c = new Clienti(idrandom, emailnou, parolautilizator, numenou, adresalivrare, taranoua, nrtelefonnou);
+
+            bool adminnou = false;
+            Clienti c = new Clienti(idrandom, emailnou, parolautilizator, numenou, adresalivrare, taranoua, nrtelefonnou,adminnou);
 
             control.add(c);
 
