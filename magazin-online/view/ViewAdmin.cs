@@ -27,6 +27,7 @@ namespace magazin_online
             Console.WriteLine($"Bun venit, {clienti.getNume()}");
             Console.WriteLine("Apasati tasta 1 pentru a adauga un produs nou ");
             Console.WriteLine("Apasati tasta 2 pentru a sterge un produs din lista");
+            Console.WriteLine("Apasati tasta 3 pentru a modifica stocul unui produs");
 
             //
         }
@@ -83,6 +84,8 @@ namespace magazin_online
 
             controlproduse.add(produs);
 
+            controlproduse.Save();  
+
 
         }
 
@@ -93,9 +96,26 @@ namespace magazin_online
             string numeprodus = Console.ReadLine();
 
             controlproduse.deletedupanume(numeprodus);
+
+            controlproduse.Save();
             
         }
 
+
+        public void modificarestoc()
+        {
+            Console.WriteLine("Introduceti numele produsului al carui stoc doriti sa il modificati");
+
+            string numeprodus = Console.ReadLine();
+
+            Console.WriteLine("Introduceti cantitatea noua de stoc pentru produs");
+
+            int stocnou = Int32.Parse(Console.ReadLine());
+
+            controlproduse.updateStocdupanume(numeprodus, stocnou);
+
+            controlproduse.Save();
+        }
 
 
 
