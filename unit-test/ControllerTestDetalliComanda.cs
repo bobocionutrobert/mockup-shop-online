@@ -125,6 +125,31 @@ namespace unit_test
                 
             }
         }
+        [Fact]
+        public void testcelmaivandutprodus()
+        {
+
+
+
+            //Preconditie   cream  mai multe order details cu produse si le daugam in controll
+            //
+            DetaliiComenzi a = new DetaliiComenzi(1, 1, 1, 100, 3);
+            DetaliiComenzi b = new DetaliiComenzi(2, 2, 1, 100, 2);
+            DetaliiComenzi c = new DetaliiComenzi(3, 4, 2, 70, 2);
+            DetaliiComenzi d = new DetaliiComenzi(4, 10, 3, 80, 3);
+            DetaliiComenzi e = new DetaliiComenzi(5, 4, 2, 20, 7);
+
+            control.add(a);
+            control.add(b);
+            control.add(c);
+            control.add(d);
+            control.add(e);
+            int[] list = control.celmaivandutprouds();
+
+
+
+            Assert.Equal(list[2], 9);
+        }
 
 
     }

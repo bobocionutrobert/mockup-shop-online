@@ -42,6 +42,19 @@ namespace magazin_online
             return -1;
         }
 
+        public int pozitiedupanume(string numeclient)
+        {
+            for(int i = 0; i < clienti.Count; i++)
+            {
+                if(clienti[i].getNume().Equals(numeclient))
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
+
+
         public Clienti client(int id)
         {
             for (int i = 0; i < clienti.Count; i++)
@@ -97,6 +110,22 @@ namespace magazin_online
             {
                 clienti.RemoveAt(poz);
                 Console.WriteLine("Clientul a fost stearsa din lista");
+                return true;
+            }
+        }
+
+        public bool deletedupanume(string numeclient)
+        {
+            int poz = pozitiedupanume(numeclient);
+            if(poz == -1)
+            {
+                Console.WriteLine("Clientul nu exista in lista");
+                return false;
+            }
+            else
+            {
+                clienti.RemoveAt(poz);
+                Console.WriteLine("Clientul a fost sters din lista");
                 return true;
             }
         }

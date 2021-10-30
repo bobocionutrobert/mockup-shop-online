@@ -191,6 +191,8 @@ namespace magazin_online
             return detalii;
         }
 
+        
+
         public List<DetaliiComenzi> Updatecantitate(int orderid, int cantitatenoua)
         {
             List<DetaliiComenzi> detalii = new List<DetaliiComenzi>();
@@ -221,5 +223,21 @@ namespace magazin_online
                 }
             }
         }
+
+        public int[] celmaivandutprouds()
+        {
+
+            int[] list = new int[100];
+
+            for(int i = 0; i < detaliicomenzi.Count; i++)
+            {
+
+                list[detaliicomenzi[i].getIdprodus()] += detaliicomenzi[i].getCantitate();
+            }
+
+            return list;
+        }
+
+       
     }
 }

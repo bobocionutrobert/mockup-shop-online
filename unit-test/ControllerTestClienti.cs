@@ -113,6 +113,15 @@ namespace unit_test
             Assert.Equal(3213819, control.client(2).getNrtelefon());
         }
         [Fact]
+        public void testDeletedupanume()
+        {
+            control.load();
+            control.deletedupanume("numee");
+
+            Assert.Equal(1, control.pozitie(3));
+        }
+
+        [Fact]
         public void testload()
         {
             control.load();
