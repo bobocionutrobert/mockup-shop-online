@@ -1,5 +1,5 @@
 1,tricou,100,19
-2,pantof,200,20
-3,geaca,199,80
+2,pantof,200,4
+3,geaca,199,2
 4,bluza,59,60
 5,produs,10,100

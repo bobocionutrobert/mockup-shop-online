@@ -30,6 +30,8 @@ namespace magazin_online
             Console.WriteLine("Apasati tasta 3 pentru a modifica stocul unui produs");
             Console.WriteLine("Apasati tasta 4 pentru a modifica parola");
             Console.WriteLine("Apasati tasta 5 pentru a sterge un client");
+            Console.WriteLine("Apasati tasta 6 pentru a vizualiza cele mai vandute produse");
+            Console.WriteLine("Apasati tasta 7 pentru a vedea stocurile reduse");
 
             //stergem contul unui client 
 
@@ -73,6 +75,9 @@ namespace magazin_online
                         break;
                     case 6:
                         vizualizarecelmaicumparatprodus();
+                        break;
+                    case 7:
+                        vizualizarestocurimici();
                         break;
 
 
@@ -163,7 +168,7 @@ namespace magazin_online
 
             controlclienti.Save();
        }
-
+        //afiseaza produsele cu un stoc mai mic sau egal cu 5 
        public void vizualizarecelmaicumparatprodus()
        {
 
@@ -178,12 +183,29 @@ namespace magazin_online
                 {
                     Produs p = controlproduse.produsdupaid(i);
 
-                    Console.WriteLine($"Produsul {p.getNume()} a fost vandut de { list[i]} ori");
+                    Console.WriteLine($"Produsul {p.getNume()} a fost vandut de {list[i]} ori");
                 }
             }
 
 
        }
+
+       public void vizualizarestocurimici()
+        {
+
+            int[] list = controlproduse.stoclalimita();
+
+            for(int i = 0; i < list.Length; i++)
+            {
+                if(list[i] != 0)
+                {
+                    Produs p = controlproduse.produsdupaid(i);
+
+                    Console.WriteLine($"Porudusl{p.getNume()} este disponibil in stoc de {list[i]} ori");
+                }
+            }
+
+        }
 
     }
 }

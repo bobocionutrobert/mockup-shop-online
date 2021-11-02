@@ -78,6 +78,22 @@ namespace magazin_online
             return null;
         }
 
+        public int[] stoclalimita()
+        {
+
+            int[] list = new int[100];
+
+            for (int i = 0; i < produse.Count; i++)
+            {
+                if (produse[i].getStoc() <= 5)
+                {
+                    list[produse[i].getId()] += produse[i].getStoc();
+                }
+            }
+
+            return list;
+        }
+
         public bool add(Produs produs)
         {
             int poz = pozitie(produs.getId());
