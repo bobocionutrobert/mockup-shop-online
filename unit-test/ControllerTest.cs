@@ -63,7 +63,7 @@ namespace unit_tests
         public void testAdd()
         {
             //Preconditie
-            Produs a = new Produs(10, "telefon",4.99,10);
+            Product a = new Product(10, "telefon",4.99,10);
 
             //ACTIUNE
             control.add(a);
@@ -80,7 +80,7 @@ namespace unit_tests
 
             for (int i = 0; i < 100; i++)
             {
-                Produs a = new Produs(10, "telefon", 4.99, 10);
+                Product a = new Product(10, "telefon", 4.99, 10);
 
                 control.add(a);
 

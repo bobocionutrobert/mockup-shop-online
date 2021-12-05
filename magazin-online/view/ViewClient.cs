@@ -136,7 +136,7 @@ namespace magazin_online
             
 
 
-            Produs produs = controlproduse.produs(produsdorit);
+            Product produs = controlproduse.produs(produsdorit);
 
 
 
@@ -207,7 +207,7 @@ namespace magazin_online
 
             string numeprodus = Console.ReadLine();
 
-            Produs produs = controlproduse.produs(numeprodus);
+            Product produs = controlproduse.produs(numeprodus);
 
             List<DetaliiComenzi> detalii = controldetaliicomenzi.getDetaliicomenzi(comanda.getId());
 
@@ -233,7 +233,7 @@ namespace magazin_online
 
             string modificacantitateprodusdupanume = Console.ReadLine();
 
-            Produs produs = controlproduse.produs(modificacantitateprodusdupanume);
+            Product produs = controlproduse.produs(modificacantitateprodusdupanume);
 
 
 

@@ -57,7 +57,7 @@ namespace magazin_online
                 switch (alegere) 
                 {
 
-                    case 1:
+                    case 1: 
                         adaugareprodus();
 
                         break;
@@ -108,7 +108,7 @@ namespace magazin_online
 
             int stocprodus = Int32.Parse(Console.ReadLine());
 
-            Produs produs = new Produs(id, numeprodus, pretprodus, stocprodus);
+            Product produs = new Product(id, numeprodus, pretprodus, stocprodus);
 
             controlproduse.add(produs);
 
@@ -168,7 +168,7 @@ namespace magazin_online
 
             controlclienti.Save();
        }
-        //afiseaza produsele cu un stoc mai mic sau egal cu 5 
+        
        public void vizualizarecelmaicumparatprodus()
        {
 
@@ -181,7 +181,7 @@ namespace magazin_online
 
                 if (list[i] != 0)
                 {
-                    Produs p = controlproduse.produsdupaid(i);
+                    Product p = controlproduse.produsdupaid(i);
 
                     Console.WriteLine($"Produsul {p.getNume()} a fost vandut de {list[i]} ori");
                 }
@@ -189,8 +189,8 @@ namespace magazin_online
 
 
        }
-
-       public void vizualizarestocurimici()
+        //afiseaza produsele cu un stoc mai mic sau egal cu 5 
+        public void vizualizarestocurimici()
         {
 
             int[] list = controlproduse.stoclalimita();
@@ -199,7 +199,7 @@ namespace magazin_online
             {
                 if(list[i] != 0)
                 {
-                    Produs p = controlproduse.produsdupaid(i);
+                    Product p = controlproduse.produsdupaid(i);
 
                     Console.WriteLine($"Porudusl{p.getNume()} este disponibil in stoc de {list[i]} ori");
                 }
