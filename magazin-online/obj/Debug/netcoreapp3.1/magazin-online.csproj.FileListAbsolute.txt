@@ -24,3 +24,10 @@ C:\Users\catas\Desktop\FullStackC#\Incapsularea\magazin-online\magazin-online\ob
 C:\Users\catas\Desktop\FullStackC#\Incapsularea\magazin-online\magazin-online\obj\Debug\netcoreapp3.1\magazin-online.dll
 C:\Users\catas\Desktop\FullStackC#\Incapsularea\magazin-online\magazin-online\obj\Debug\netcoreapp3.1\magazin-online.pdb
 C:\Users\catas\Desktop\FullStackC#\Incapsularea\magazin-online\magazin-online\obj\Debug\netcoreapp3.1\magazin-online.genruntimeconfig.cache
+C:\Users\Asus\Source\Repos\mockup-shop-online\magazin-online\obj\Debug\netcoreapp3.1\magazin-online.csproj.AssemblyReference.cache
+C:\Users\Asus\Source\Repos\mockup-shop-online\magazin-online\obj\Debug\netcoreapp3.1\magazin-online.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Asus\Source\Repos\mockup-shop-online\magazin-online\obj\Debug\netcoreapp3.1\magazin-online.AssemblyInfoInputs.cache
+C:\Users\Asus\Source\Repos\mockup-shop-online\magazin-online\obj\Debug\netcoreapp3.1\magazin-online.AssemblyInfo.cs
+C:\Users\Asus\Source\Repos\mockup-shop-online\magazin-online\obj\Debug\netcoreapp3.1\magazin-online.csproj.CoreCompileInputs.cache
+C:\Users\Asus\Source\Repos\mockup-shop-online\magazin-online\obj\Debug\netcoreapp3.1\magazin-online.dll
+C:\Users\Asus\Source\Repos\mockup-shop-online\magazin-online\obj\Debug\netcoreapp3.1\magazin-online.pdb

@@ -160,7 +160,7 @@ namespace magazin_online
         }
 
         
-        public void 
+        
         
         
 
@@ -175,14 +175,15 @@ namespace magazin_online
             {
                 string[] prop = line.Split(",");
 
-                int id = Int32.Parse(prop[0]);
-                string nume = prop[1];
-                double pret = double.Parse(prop[2]);
-                int cantitate = Int32.Parse(prop[3]);
+                int productid = Int32.Parse(prop[0]);
+                string producttype = prop[1];
+                string productname = prop[2]; 
+                double price  = double.Parse(prop[2]);
+                int productstock = Int32.Parse(prop[3]);
 
-                Product produs = new Product(id, nume, pret, cantitate);
+                Product product = new Product(productid,producttype,productname,price,productstock);
 
-                produse.Add(produs);
+                products.Add(product);
 
 
 
@@ -199,12 +200,12 @@ namespace magazin_online
 
             int i = 0;
 
-            for (i = 0; i < produse.Count-1; i++)
+            for (i = 0; i < products.Count-1; i++)
             {
-                text += produse[i].toSave() + "\n";
+                text += products[i].toSave() + "\n";
             }
 
-            text += produse[i].toSave();
+            text += products[i].toSave();
 
             return text;
         }

@@ -13,23 +13,23 @@ namespace magazin_online
     class ViewClient
     {
 
-        private Clienti clienti;
+        private Person clienti;
         private ControllerProduse controlproduse;
         private ControllerComenzi controlcomenzi;
         private ControllerDetaliiComenzi controldetaliicomenzi;
-        private ControllerClienti controlclienti;
+        private ControllerPerson controlclienti;
 
         private Comenzi comanda;
         
 
-        public ViewClient(Clienti clienti)
+        public ViewClient(Person clienti)
         {
 
             this.clienti = clienti;
             controlproduse = new ControllerProduse();
             controlcomenzi = new ControllerComenzi();
             controldetaliicomenzi = new ControllerDetaliiComenzi();
-            controlclienti = new ControllerClienti();
+            controlclienti = new ControllerPerson();
 
             comanda = new Comenzi(controlcomenzi.nextid(), clienti.getId(), 0, "");
 

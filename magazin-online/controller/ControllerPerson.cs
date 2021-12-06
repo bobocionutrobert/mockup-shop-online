@@ -5,14 +5,14 @@ using System.Text;
 
 namespace magazin_online
 {
-    public class ControllerClienti
+    public class ControllerPerson
     {
 
-        private List<Clienti> clienti;
+        private List<Person> persons;
 
-        public ControllerClienti()
+        public ControllerPerson()
         {
-            clienti = new List<Clienti>();
+            persons = new List<Person>();
 
 
             load();
@@ -21,11 +21,11 @@ namespace magazin_online
 
         }
 
-        public void afisare()
+        public void displayListofPersons()
         {
-            for (int i = 0; i < clienti.Count; i++)
+            for (int i = 0; i < persons.Count; i++)
             {
-                Console.WriteLine(clienti[i].descriere());
+                Console.WriteLine(persons[i].personDetails());
             }
         }
 
@@ -55,7 +55,7 @@ namespace magazin_online
         }
 
 
-        public Clienti client(int id)
+        public Person client(int id)
         {
             for (int i = 0; i < clienti.Count; i++)
             {
@@ -68,7 +68,7 @@ namespace magazin_online
             return null;
         }
 
-        public Clienti returnClienti(string email, string parola)
+        public Person returnClienti(string email, string parola)
         {
             for(int i = 0; i < clienti.Count; i++)
             {
@@ -80,7 +80,7 @@ namespace magazin_online
             return null;
         }
 
-        public bool add(Clienti client)
+        public bool add(Person client)
         {
             int poz = pozitie(client.getId());
 
@@ -247,7 +247,7 @@ namespace magazin_online
                 int nrtelefon = Int32.Parse(prop[6]);
                 bool admin = bool.Parse(prop[7]);
 
-                Clienti client = new Clienti(id,email,parola,nume,adresa,tara,nrtelefon,admin);
+                Person client = new Person(id,email,parola,nume,adresa,tara,nrtelefon,admin);
 
                 clienti.Add(client);
 

@@ -10,7 +10,7 @@ namespace unit_test
     public class ControllerTestClienti
     {
 
-        private ControllerClienti control;
+        private ControllerPerson control;
 
         private readonly ITestOutputHelper output;
 
@@ -18,7 +18,7 @@ namespace unit_test
         public ControllerTestClienti(ITestOutputHelper output)
         {
 
-            control = new ControllerClienti();
+            control = new ControllerPerson();
 
             this.output = output;
 
@@ -38,12 +38,12 @@ namespace unit_test
         [Fact]
         public void testPozitie3()
         {
-            Clienti a = new Clienti(1, "email", "parola", "nume", "adresa", "tara", 21382101,false); //0
-            Clienti b = new Clienti(2, "email1", "parola2", "nume2", "adresa2", "tara2", 213821011,false); //1
-            Clienti c = new Clienti(3, "email3", "parola3", "nume3", "adresa3", "tara3", 2138210121,false); //2
-            Clienti d = new Clienti(4, "email4", "parola4", "nume4", "adresa4", "tara4", 398382101,false); //3
-            Clienti e = new Clienti(5, "email5", "parola5", "nume5", "adresa5", "tara5", 993821014,false); //4
-            Clienti f = new Clienti(6, "email6", "parola6", "nume6", "adresa6", "tara6", 2138210123,false); //5
+            Person a = new Person(1, "email", "parola", "nume", "adresa", "tara", 21382101,false); //0
+            Person b = new Person(2, "email1", "parola2", "nume2", "adresa2", "tara2", 213821011,false); //1
+            Person c = new Person(3, "email3", "parola3", "nume3", "adresa3", "tara3", 2138210121,false); //2
+            Person d = new Person(4, "email4", "parola4", "nume4", "adresa4", "tara4", 398382101,false); //3
+            Person e = new Person(5, "email5", "parola5", "nume5", "adresa5", "tara5", 993821014,false); //4
+            Person f = new Person(6, "email6", "parola6", "nume6", "adresa6", "tara6", 2138210123,false); //5
 
             control.add(a);
             control.add(b);

@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "5YaD2Z/KJPnNvHHlVvmKchsqe1ZwmbZ9989RrG5o1GEF6DjWUrU58bRgcCrnXegmhj5xDfFmvQ9GaHzWaX/gOQ==",
+  "dgSpecHash": "tEo34vqcI5TgVkygqtxE2aNZUM/G2E2agUyp6lEyK3aDjN6BCOPwPfah74Uju0Xt9HN4AnpLDFiej9H8hGoJ7A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\catas\\Desktop\\FullStackC#\\Incapsularea\\magazin-online\\magazin-online\\magazin-online.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\Asus\\Source\\Repos\\mockup-shop-online\\magazin-online\\magazin-online.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Asus\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.21\\microsoft.netcore.app.host.win-x64.3.1.21.nupkg.sha512",
+    "C:\\Users\\Asus\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512",
+    "C:\\Users\\Asus\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512",
+    "C:\\Users\\Asus\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512"
+  ],
   "logs": []
 }

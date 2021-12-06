@@ -7,11 +7,11 @@ namespace magazin_online
     class ViewLogin
     {
 
-        private ControllerClienti control;
+        private ControllerPerson control;
 
         public ViewLogin()
         {
-            control = new ControllerClienti();
+            control = new ControllerPerson();
         }
 
         public void meniu()
@@ -69,7 +69,7 @@ namespace magazin_online
 
 
 
-            Clienti p = control.returnClienti(email, password); ;
+            Person p = control.returnClienti(email, password); ;
 
 
             if(p != null)
@@ -123,7 +123,7 @@ namespace magazin_online
             int nrtelefonnou = Int32.Parse(Console.ReadLine());
 
             bool adminnou = false;
-            Clienti c = new Clienti(idrandom, emailnou, parolautilizator, numenou, adresalivrare, taranoua, nrtelefonnou,adminnou);
+            Person c = new Person(idrandom, emailnou, parolautilizator, numenou, adresalivrare, taranoua, nrtelefonnou,adminnou);
 
             control.add(c);
 

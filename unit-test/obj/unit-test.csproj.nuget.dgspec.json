@@ -1,26 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\catas\\Desktop\\FullStackC#\\Incapsularea\\magazin-online\\unit-test\\unit-test.csproj": {}
+    "C:\\Users\\Asus\\Source\\Repos\\mockup-shop-online\\unit-test\\unit-test.csproj": {}
   },
   "projects": {
-    "C:\\Users\\catas\\Desktop\\FullStackC#\\Incapsularea\\magazin-online\\magazin-online\\magazin-online.csproj": {
+    "C:\\Users\\Asus\\Source\\Repos\\mockup-shop-online\\magazin-online\\magazin-online.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\catas\\Desktop\\FullStackC#\\Incapsularea\\magazin-online\\magazin-online\\magazin-online.csproj",
+        "projectUniqueName": "C:\\Users\\Asus\\Source\\Repos\\mockup-shop-online\\magazin-online\\magazin-online.csproj",
         "projectName": "magazin-online",
-        "projectPath": "C:\\Users\\catas\\Desktop\\FullStackC#\\Incapsularea\\magazin-online\\magazin-online\\magazin-online.csproj",
-        "packagesPath": "C:\\Users\\catas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\catas\\Desktop\\FullStackC#\\Incapsularea\\magazin-online\\magazin-online\\obj\\",
+        "projectPath": "C:\\Users\\Asus\\Source\\Repos\\mockup-shop-online\\magazin-online\\magazin-online.csproj",
+        "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Asus\\Source\\Repos\\mockup-shop-online\\magazin-online\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\catas\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -54,32 +49,45 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.10, 3.1.10]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[3.1.21, 3.1.21]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[3.1.0, 3.1.0]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[3.1.0, 3.1.0]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\catas\\Desktop\\FullStackC#\\Incapsularea\\magazin-online\\unit-test\\unit-test.csproj": {
+    "C:\\Users\\Asus\\Source\\Repos\\mockup-shop-online\\unit-test\\unit-test.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\catas\\Desktop\\FullStackC#\\Incapsularea\\magazin-online\\unit-test\\unit-test.csproj",
+        "projectUniqueName": "C:\\Users\\Asus\\Source\\Repos\\mockup-shop-online\\unit-test\\unit-test.csproj",
         "projectName": "unit-test",
-        "projectPath": "C:\\Users\\catas\\Desktop\\FullStackC#\\Incapsularea\\magazin-online\\unit-test\\unit-test.csproj",
-        "packagesPath": "C:\\Users\\catas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\catas\\Desktop\\FullStackC#\\Incapsularea\\magazin-online\\unit-test\\obj\\",
+        "projectPath": "C:\\Users\\Asus\\Source\\Repos\\mockup-shop-online\\unit-test\\unit-test.csproj",
+        "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Asus\\Source\\Repos\\mockup-shop-online\\unit-test\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\catas\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -92,8 +100,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\catas\\Desktop\\FullStackC#\\Incapsularea\\magazin-online\\magazin-online\\magazin-online.csproj": {
-                "projectPath": "C:\\Users\\catas\\Desktop\\FullStackC#\\Incapsularea\\magazin-online\\magazin-online\\magazin-online.csproj"
+              "C:\\Users\\Asus\\Source\\Repos\\mockup-shop-online\\magazin-online\\magazin-online.csproj": {
+                "projectPath": "C:\\Users\\Asus\\Source\\Repos\\mockup-shop-online\\magazin-online\\magazin-online.csproj"
               }
             }
           }
@@ -139,12 +147,26 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.10, 3.1.10]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[3.1.0, 3.1.0]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[3.1.0, 3.1.0]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
