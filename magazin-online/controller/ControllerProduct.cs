@@ -193,6 +193,17 @@ namespace magazin_online
             }
         }
 
+        public void updateProductStockByName(string productname,int newproductstock)
+        {
+            foreach(Product product in products)
+            {
+                if (product.getProductName().Equals(productname))
+                {
+                    product.setProductStock(newproductstock);
+                }
+            }
+        }
+
         public void updateClothSize(int productid,string newclothsize)
         {
             foreach(Product product in products)

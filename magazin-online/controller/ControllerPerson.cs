@@ -78,6 +78,38 @@ namespace magazin_online
             return null;
         }
 
+        public Person returnAdminByEmailPassword(string email,string password)
+        {
+            foreach (Person person in persons)
+            {
+                Admin admin = person as Admin;
+
+                if (admin.Email.Equals(email) && admin.Password.Equals(password))
+                {
+                    
+                    return admin;
+                }
+            }
+            return null;
+        }
+
+        public Person returnClientByEmailPassword(string email, string password)
+        {
+            foreach (Person person in persons)
+            {
+                Client client = person as Client;
+
+                if (client.Email.Equals(email) && client.Password.Equals(password))
+                {
+
+                    return client;
+                }
+            }
+            return null;
+        }
+
+
+
         public bool addPerson(Person person)
         {
             int poz = positionById(person.Id);

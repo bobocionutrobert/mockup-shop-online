@@ -31,3 +31,10 @@ C:\Users\Asus\Source\Repos\mockup-shop-online\magazin-online\obj\Debug\netcoreap
 C:\Users\Asus\Source\Repos\mockup-shop-online\magazin-online\obj\Debug\netcoreapp3.1\magazin-online.csproj.CoreCompileInputs.cache
 C:\Users\Asus\Source\Repos\mockup-shop-online\magazin-online\obj\Debug\netcoreapp3.1\magazin-online.dll
 C:\Users\Asus\Source\Repos\mockup-shop-online\magazin-online\obj\Debug\netcoreapp3.1\magazin-online.pdb
+C:\Users\Asus\Source\Repos\mockup-shop-online\magazin-online\bin\Debug\netcoreapp3.1\magazin-online.exe
+C:\Users\Asus\Source\Repos\mockup-shop-online\magazin-online\bin\Debug\netcoreapp3.1\magazin-online.deps.json
+C:\Users\Asus\Source\Repos\mockup-shop-online\magazin-online\bin\Debug\netcoreapp3.1\magazin-online.runtimeconfig.json
+C:\Users\Asus\Source\Repos\mockup-shop-online\magazin-online\bin\Debug\netcoreapp3.1\magazin-online.runtimeconfig.dev.json
+C:\Users\Asus\Source\Repos\mockup-shop-online\magazin-online\bin\Debug\netcoreapp3.1\magazin-online.dll
+C:\Users\Asus\Source\Repos\mockup-shop-online\magazin-online\bin\Debug\netcoreapp3.1\magazin-online.pdb
+C:\Users\Asus\Source\Repos\mockup-shop-online\magazin-online\obj\Debug\netcoreapp3.1\magazin-online.genruntimeconfig.cache

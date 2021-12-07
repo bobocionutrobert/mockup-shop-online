@@ -13,49 +13,46 @@ namespace magazin_online
     class ViewClient
     {
 
-        private Person clienti;
-        private ControllerProduse controlproduse;
-        private ControllerOrders controlcomenzi;
-        private ControllerOrderDetails controldetaliicomenzi;
-        private ControllerPerson controlclienti;
+        private Person person;
+        private ControllerProduct controlproduct;
+        private ControllerOrders controlorder;
+        private ControllerOrderDetails controlorderdetails;
+        private ControllerPerson controlperson;
 
-        private Order comanda;
+        private Order order;
         
 
-        public ViewClient(Person clienti)
+        public ViewClient(Person person)
         {
 
-            this.clienti = clienti;
-            controlproduse = new ControllerProduse();
-            controlcomenzi = new ControllerOrders();
-            controldetaliicomenzi = new ControllerOrderDetails();
-            controlclienti = new ControllerPerson();
+            this.person = person;
+            controlproduct = new ControllerProduct();
+            controlorder = new ControllerOrders();
+            controlorderdetails = new ControllerOrderDetails();
+            controlperson = new ControllerPerson();
 
-            comanda = new Comenzi(controlcomenzi.nextid(), clienti.getId(), 0, "");
+            order = new Order(controlorder.nextid(),"", person.Id, 0,"");
 
 
         
 
         }
 
-        public void meniu()
+        public void menu()
         {
-            Console.WriteLine("===================Meniu Client================");
-            Console.WriteLine($"Bun venit, {clienti.getNume()}");
-            Console.WriteLine("Apasati tasta 1 pentru a vizualiza produsele");
-            Console.WriteLine("Apasati tasta 2 pentru a adauga un produs in cos");
-            Console.WriteLine("Apasati tasta 3 pentru a vedea produsele din cos ");
-            Console.WriteLine("Apasati tasta 4 pentru a sterge un produs din cos");
-            Console.WriteLine("Apasati tasta 5 pentru a edita cosul");
-            Console.WriteLine("Apasati tasta 6 pentru a finaliza comanda");
-            Console.WriteLine("Apasati tasta 7 pentru a vedea istoricul comenzilor");
-            Console.WriteLine("Apasati tasta 8 pentru a vedea ultima comanda plasata");
-            Console.WriteLine("Apasati tasta 9 pentru a vedea comenzile in ordinea preturilor");
-            Console.WriteLine("Apasati tasta 0 pentru a edita profilul dumneaovastra");
-            //istoricul comenzilor
-            //sortarea comenzilor in ordinea preturilor
-            //produsele dintr-o anumita comanda
-            //editare client profile
+            Console.WriteLine("===================Menu Client================");
+            Console.WriteLine($"Bun venit, {person.Name}");
+            Console.WriteLine("Press 1 to see the list of products");
+            Console.WriteLine("Press 2 to add products to cart");
+            Console.WriteLine("Press 3 to see the producst in cart ");
+            Console.WriteLine("Press 4 to delete a product from the cart");
+            Console.WriteLine("Press 5 to edit products from cart");
+            Console.WriteLine("Press 6 to finish the order");
+            Console.WriteLine("Press 7 to see the orders history");
+            Console.WriteLine("Press 8 to see the last placed order");
+            Console.WriteLine("Press 9 to see orders order");
+            //Console.WriteLine("Apasati tasta 0 pentru a edita profilul dumneaovastra");
+           
 
 
 
@@ -67,41 +64,41 @@ namespace magazin_online
             bool running = true;
             while (running == true) {
 
-                meniu();
+                menu();
                 int alegere = Int32.Parse(Console.ReadLine());
 
                 switch (alegere)
                 {
                     case 1:
-                        controlproduse.afisare();
+                        controlproduct.productsDisplay();
                         break;
                     case 2:
-                        adaugareincos();
+                        addCart();
                         break;
                     case 3:
-                        vizualizarecos();
+                        displayCart();
                         break;
 
                     case 4:
-                        stergeredincos();
+                        deleteProductFromCart();
                         break;
                     case 5:
-                        editarecos();
+                        editCart();
                         break;
                     case 6:
-                        finalizarecomanda();
+                        finishOrder();
                         break;
                     case 7:
-                        istoriculcomenzilor();
+                        ordersHistory();
                         break;
                     case 8:
-                        ultimacomanda();
+                        lastOrder();
                         break;
                     case 9:
-                        vizualizareordinecomenzi();
+                        ordersOrder();
                         break;
                     case 0:
-                        editareprofil();
+                        
                         break;
                          
                 }
@@ -111,61 +108,62 @@ namespace magazin_online
 
         }
 
-        public void meniuUpdateprofil()
-        {
-            Console.WriteLine("===================Meniu Update Client================");
-            Console.WriteLine($"Bun venit, {clienti.getNume()}");
-            Console.WriteLine("Apasati tasta 1 pentru a edita numele");
-            Console.WriteLine("Apasati tasta 2 pentru a edita email-ul");
-            Console.WriteLine("Apasati tasta 3 pentru a edita parola");
-            Console.WriteLine("Apasati tasta 4 pentru a edita adresa");
-            Console.WriteLine("Apasati tasta 5 pentru a edita tara");
-            Console.WriteLine("Apasati tasta 6 pentru a edita numarul de telefon");
-        }
+        //public void meniuUpdateprofil()
+        //{
+        //    Console.WriteLine("===================Meniu Update Client================");
+        //    Console.WriteLine($"Bun venit, {person.Name}");
+        //    Console.WriteLine("Apasati tasta 1 pentru a edita numele");
+        //    Console.WriteLine("Apasati tasta 2 pentru a edita email-ul");
+        //    Console.WriteLine("Apasati tasta 3 pentru a edita parola");
+        //    Console.WriteLine("Apasati tasta 4 pentru a edita adresa");
+        //    Console.WriteLine("Apasati tasta 5 pentru a edita tara");
+        //    Console.WriteLine("Apasati tasta 6 pentru a edita numarul de telefon");
+        //}
 
 
         
-        public void adaugareincos()
+        public void addCart()
         {
 
-            Console.WriteLine("Introduceti numele produsului pe care il doriti");
-            string produsdorit = Console.ReadLine();
+            Console.WriteLine("Insert product name you wish to add to cart");
 
-            //verifica,m daca produsul dorit exista
+            string desiredproduct = Console.ReadLine();
+
+            
 
             
 
 
-            Product produs = controlproduse.produs(produsdorit);
+            Product product = controlproduct.returnProductByName(desiredproduct);
 
 
 
-            if( produs != null)
+            if( product != null)
             {
 
-                Console.WriteLine("Introduceti cantitatea pentru produsul dorit");
+                Console.WriteLine("Insert quanitity of product : ");
 
-                int cantiatatedorita = Int32.Parse(Console.ReadLine());
+                int desiredquantity = Int32.Parse(Console.ReadLine());
 
                 //exista cantiatatea dorita
 
-                if( produs.getStoc() >= cantiatatedorita)
+                if( product.getProductStock() >= desiredquantity)
                 {
                     //adauga in cos
 
-                    OrderDetails comandanoua = new DetaliiComenzi(controldetaliicomenzi.nextid(), comanda.getId(), produs.getId(), cantiatatedorita*(int)produs.getPret(),cantiatatedorita);
+                    OrderDetails neworder = new OrderDetails(controlorderdetails.nextid(), order.Id, product.getProductId(), desiredquantity * (int)product.getProductPrice(), desiredquantity);
 
 
 
-                    controldetaliicomenzi.add(comandanoua);
+                    controlorderdetails.addOrderDetails(neworder);
 
                     //update  produse
 
 
-                    controlproduse.updateStoc(controlproduse.produs(produsdorit).getId(), produs.getStoc() - cantiatatedorita);
+                    controlproduct.updateProductStock(controlproduct.returnProductByName(desiredproduct).getProductId(), product.getProductStock() - desiredquantity);
 
 
-                    Console.WriteLine("Produsul s-a adaugat in cos");
+                    Console.WriteLine("Product added to cart ");
 
                     
 
@@ -180,20 +178,20 @@ namespace magazin_online
 
     }
 
-        public void vizualizarecos()
+        public void displayCart()
         {
 
-            List<OrderDetails> detalii = controldetaliicomenzi.getDetaliicomenzi(comanda.getId());
+            List<OrderDetails> orderdetails = controlorderdetails.getOrderDetails(order.Id);
 
-            for (int i = 0; i < detalii.Count; i++)
+            for (int i = 0; i < orderdetails.Count; i++)
             {
-                string text = "Id produs : " + detalii[i].getIdprodus() + "\n";
+                string text = "Product ID : " + orderdetails[i].Productid + "\n";
 
-                text += "Numele produsului : " + controlproduse.produsdupaid(detalii[i].getIdprodus()).getNume() + "\n";
+                text += "Product name : " + controlproduct.returnProductById(orderdetails[i].Productid).getProductName() + "\n";
 
-                text += "Cantitate :  " + detalii[i].getCantitate() + "\n";
+                text += "Quantity :  " + orderdetails[i].Quantity + "\n";
 
-                text += "Pret : " + detalii[i].getPret() + "\n";
+                text += "Price : " + orderdetails[i].Price + "\n";
 
                 Console.WriteLine(text);
             }
@@ -201,167 +199,170 @@ namespace magazin_online
 
         }
 
-        public void stergeredincos()
+        public void deleteProductFromCart()
         {
-            Console.WriteLine("introduceti numele produsului pe care doriti sa il stergeti din cos");
+            Console.WriteLine("Insert name of the product you want to remove from cart");
 
-            string numeprodus = Console.ReadLine();
+            string productname = Console.ReadLine();
 
-            Product produs = controlproduse.produs(numeprodus);
+            Product product = controlproduct.returnProductByName(productname);
 
-            List<OrderDetails> detalii = controldetaliicomenzi.getDetaliicomenzi(comanda.getId());
+            List<OrderDetails> orderdetails = controlorderdetails.getOrderDetails(order.Id);
 
-            for(int i = 0; i < detalii.Count; i++)
+            for(int i = 0; i < orderdetails.Count; i++)
             {
-                if (controlproduse.produsdupaid(detalii[i].getIdprodus()).getNume().Equals(numeprodus))
+                if (controlproduct.returnProductById(orderdetails[i].Productid).getProductName().Equals(productname))
                 {
-                    controldetaliicomenzi.delete(detalii[i].getId());
+                    controlorderdetails.deleteOrderDetails(orderdetails[i].Id);
                    
                 }
                 else
                 {
-                    Console.WriteLine("Produsul nu exista in cos");
+                    Console.WriteLine("Produsul not in cart");
                 }
             }
             
            
         }
 
-        public void editarecos()
+        public void editCart()
         {
-            Console.WriteLine("Va rugam introduceti numele produsului din cos a carui cantitate doriti sa o modificati");
+            Console.WriteLine("Insert product name of which quanitity you wish to modify ");
 
-            string modificacantitateprodusdupanume = Console.ReadLine();
+            string modifyproductquanitity = Console.ReadLine();
 
-            Product produs = controlproduse.produs(modificacantitateprodusdupanume);
+            Product product = controlproduct.returnProductByName(modifyproductquanitity);
 
 
 
-            List<OrderDetails> detalii = controldetaliicomenzi.getDetaliicomenzi(comanda.getId());
+            List<OrderDetails> orderdetails = controlorderdetails.getOrderDetails(order.Id);
 
-            for(int i = 0; i < detalii.Count; i++)
+            for(int i = 0; i < orderdetails.Count; i++)
             {
-                if (controlproduse.produsdupaid(detalii[i].getIdprodus()).getNume().Equals(modificacantitateprodusdupanume))
+                if (controlproduct.returnProductById(orderdetails[i].Productid).getProductName().Equals(modifyproductquanitity))
 
 
                 {
-                    Console.WriteLine($"Aveti in cos {detalii[i].getCantitate()} produse de acel tip in cos");
+                    Console.WriteLine($"There are {orderdetails[i].Quantity} products of this type in the cart");
 
-                    Console.WriteLine("Introduceti cantitatea noua pentru acest produs");
+                    Console.WriteLine("Insert new quanitity : ");
 
-                    int cantitatenoua = Int32.Parse(Console.ReadLine());
+                    int newquanitity = Int32.Parse(Console.ReadLine());
 
-                    if (cantitatenoua > 0)
+                    if (newquanitity > 0)
                     {
-                        int cantiateVeche = detalii[i].getCantitate();
+                        int oldquanitity = orderdetails[i].Quantity;
 
                    
 
 
-                        controlproduse.updateStocdupanume(modificacantitateprodusdupanume,(produs.getStoc()+cantiateVeche)-cantitatenoua);
+                        controlproduct.updateProductStockByName(modifyproductquanitity, (product.getProductStock()+oldquanitity)- newquanitity);
 
 
-                        detalii[i].setCantitate(cantitatenoua);
+                        orderdetails[i].Quantity = newquanitity;
 
 
-                        detalii[i].setPret(cantitatenoua * (int)produs.getPret());
+                        orderdetails[i].Price = newquanitity * (int)product.getProductPrice();
 
 
 
                        
-                        Console.WriteLine("Cosul a fost editat");
+                        Console.WriteLine("Cart edited");
                     }
-                    else if (cantitatenoua == 0)
+                    else if (newquanitity == 0)
                     {
-                        controldetaliicomenzi.delete(detalii[i].getId());
-                        Console.WriteLine("Produsul a fost sters din cos");
+                        controlorderdetails.deleteOrderDetails(orderdetails[i].Id);
+                        Console.WriteLine("Product removed from cart");
                     }
                     else
                     {
-                        Console.WriteLine("Produsul nu exista in cos");
+                        Console.WriteLine("Product is not in the cart");
                     }
                 }
             }
         }
 
-        public void finalizarecomanda()
+        public void finishOrder()
         {
-            Console.WriteLine("Sunteti sigur ca doriti sa finalizati comanda da/nu");
+            Console.WriteLine("Are you sure you want to finish the order? yes/no");
 
-            string sigur = Console.ReadLine();
+            string sure = Console.ReadLine();
 
-            if (sigur == "da")
+            if (sure == "yes")
             {
-                Console.WriteLine("Acesta este cosul dumneavoastra de cumparaturi");
-                vizualizarecos();
+                Console.WriteLine("This is your order : ");
+                displayCart();
 
-                Console.WriteLine("Doriti sa plasati comanda? da/nu");
+                Console.WriteLine("You wish to place this order? yes/no");
 
-                string dasaunu = Console.ReadLine();
+                string yesorno = Console.ReadLine();
 
-                if (dasaunu == "da")
+                if (yesorno == "yes")
                 {
-                    controldetaliicomenzi.toSave();
-                    Console.WriteLine($"Comanda va fi livrata in cel mai scurt timp la adresa {comanda.getAdresalivrare()}");
-                    controldetaliicomenzi.delete(comanda.getId());
+                    controlorderdetails.toSave();
+                    Console.WriteLine($"The order will be delivered at  {order.Deliveryaddress}");
+                    controlorderdetails.deleteOrderDetails(order.Id);
                 }
                 else
                 {
-                    Console.WriteLine("Ati fost redirectionat catre meniul principal");
-                    meniu();
+                    Console.WriteLine("Redirected to main menu");
+                    menu();
                 }
 
             }
-            else if( sigur == "nu")
+            else if( sure == "nu")
             {
-                meniu();
+                Console.WriteLine("Redirected to main menu");
+                menu();
             }
             else
             {
-                meniu();
+
+                Console.WriteLine("Redirected to main menu");
+                menu();
             }
 
         }
 
-        public void istoriculcomenzilor()
+        public void ordersHistory()
         {
-            List<OrderDetails> istoric = controldetaliicomenzi.getDetaliicomenzi(comanda.getIdclient());
+            List<OrderDetails> orderhistory = controlorderdetails.getOrderDetails(order.ClientId);
 
             
-            for(int i = 0; i < istoric.Count; i++)
+            for(int i = 0; i < orderhistory.Count; i++)
             {
                 
-                Console.WriteLine(istoric[i].descriere());
+                Console.WriteLine(orderhistory[i].orderDetails());
             }
         }
 
-        public void ultimacomanda()
+        public void lastOrder()
         {
 
-            List<OrderDetails> istoric = controldetaliicomenzi.getDetaliicomenzi(comanda.getIdclient());
+            List<OrderDetails> ordershistory = controlorderdetails.getOrderDetails(order.ClientId);
 
            
 
-             Console.WriteLine(istoric[istoric.Count-1].descriere());
+             Console.WriteLine(ordershistory[ordershistory.Count-1].orderDetails());
             
 
         }
 
-        public void vizualizareordinecomenzi()
+        public void ordersOrder()
         {
 
-            List<OrderDetails> istoric = controldetaliicomenzi.getDetaliicomenzi(comanda.getIdclient());
+            List<OrderDetails> ordershistory = controlorderdetails.getOrderDetails(order.ClientId); 
 
 
-            for(int i = 0; i < istoric.Count-1; i++)
+            for(int i = 0; i < ordershistory.Count-1; i++)
             {
-                for(int j = i+1; j < istoric.Count; j++)
+                for(int j = i+1; j < ordershistory.Count; j++)
                 {
-                    if(istoric[i].getPret() > istoric[j].getPret())
+                    if(ordershistory[i].Price > ordershistory[j].Price)
                     {
-                        OrderDetails aux = istoric[i];
-                        istoric[i] = istoric[j];
-                        istoric[j] = aux;
+                        OrderDetails aux = ordershistory[i];
+                        ordershistory[i] = ordershistory[j];
+                        ordershistory[j] = aux;
                     }
 
                 }
@@ -370,63 +371,63 @@ namespace magazin_online
 
 
 
-            foreach(OrderDetails detalii in istoric)
+            foreach(OrderDetails orderdetails in ordershistory)
             {
-                Console.WriteLine(detalii.descriere());
+                Console.WriteLine(orderdetails.orderDetails());
             }
           
 
         }
 
-        public void editareprofil()
-        {
-            meniuUpdateprofil();
+        //public void editProfile()
+        //{
+        //    meniuUpdateprofil();
 
-            Console.WriteLine("Alegeti ce doriti sa modificati din profil ");
+        //    Console.WriteLine("Alegeti ce doriti sa modificati din profil ");
 
-            int alegere = Int32.Parse(Console.ReadLine());
+        //    int alegere = Int32.Parse(Console.ReadLine());
 
-            switch (alegere)
-            {
-                case 1:
-                    Console.WriteLine("Introduceti un numele nou : ");
-                    string numenou = Console.ReadLine();
-                    controlclienti.updateNume(clienti.getId(),numenou);
-                    controlclienti.Save();
-                    break;
-                case 2:
-                    Console.WriteLine("Introduceti emailul nou : ");
-                    string emailnou = Console.ReadLine();
-                    controlclienti.updateEmail(clienti.getId(),emailnou);
-                    controlclienti.Save();
-                    break;
+        //    switch (alegere)
+        //    {
+        //        case 1:
+        //            Console.WriteLine("Introduceti un numele nou : ");
+        //            string numenou = Console.ReadLine();
+        //            controlclienti.updateNume(clienti.getId(),numenou);
+        //            controlclienti.Save();
+        //            break;
+        //        case 2:
+        //            Console.WriteLine("Introduceti emailul nou : ");
+        //            string emailnou = Console.ReadLine();
+        //            controlclienti.updateEmail(clienti.getId(),emailnou);
+        //            controlclienti.Save();
+        //            break;
 
-                case 3:
-                    Console.WriteLine("Introduceti parola noua : ");
-                    string parolanoua = Console.ReadLine();
-                    controlclienti.updateParola(clienti.getId(),parolanoua);
-                    controlclienti.Save();
-                    break;
-                case 4:
-                    Console.WriteLine("Introduceti o adresa noua : ");
-                    string adresanoua = Console.ReadLine();
-                    controlclienti.updateAdresa(clienti.getId(),adresanoua);
-                    controlclienti.Save();
-                    break;
-                case 5:
-                    Console.WriteLine(" Introduceti numele tarii : ");
-                    string taranoua = Console.ReadLine();
-                    controlclienti.updateTara(clienti.getId(),taranoua);
-                    controlclienti.Save();
-                    break;
-                case 6:
-                    Console.WriteLine("introduceti numarul de telefon:");
-                    int telefonnou = Int32.Parse(Console.ReadLine());
-                    controlclienti.updateNrTelefon(clienti.getId(),telefonnou);
-                    controlclienti.Save();
-                    break;
-            }
-        }
+        //        case 3:
+        //            Console.WriteLine("Introduceti parola noua : ");
+        //            string parolanoua = Console.ReadLine();
+        //            controlclienti.updateParola(clienti.getId(),parolanoua);
+        //            controlclienti.Save();
+        //            break;
+        //        case 4:
+        //            Console.WriteLine("Introduceti o adresa noua : ");
+        //            string adresanoua = Console.ReadLine();
+        //            controlclienti.updateAdresa(clienti.getId(),adresanoua);
+        //            controlclienti.Save();
+        //            break;
+        //        case 5:
+        //            Console.WriteLine(" Introduceti numele tarii : ");
+        //            string taranoua = Console.ReadLine();
+        //            controlclienti.updateTara(clienti.getId(),taranoua);
+        //            controlclienti.Save();
+        //            break;
+        //        case 6:
+        //            Console.WriteLine("introduceti numarul de telefon:");
+        //            int telefonnou = Int32.Parse(Console.ReadLine());
+        //            controlclienti.updateNrTelefon(clienti.getId(),telefonnou);
+        //            controlclienti.Save();
+        //            break;
+        //    }
+        //}
 
 
     }

@@ -6,41 +6,34 @@ namespace magazin_online
 {
     class ViewAdmin
     {
-        private Person clienti;
-        private ControllerPerson controlclienti;
-        private ControllerOrders controlcomenzi;
-        private ControllerOrderDetails controldetalii;
-        private ControllerProduse controlproduse;
+        private Person person;
+        private ControllerProduct controlproduct;
+        private ControllerOrders controlorder;
+        private ControllerOrderDetails controlorderdetails;
+        private ControllerPerson controlperson;
 
-        public ViewAdmin(Person clienti)
+        public ViewAdmin(Person person)
         {
-            this.clienti = clienti;
-            controlclienti = new ControllerPerson();
-            controlcomenzi = new ControllerOrders();
-            controldetalii = new ControllerOrderDetails();
-            controlproduse = new ControllerProduse();
+            this.person = person;
+            controlproduct = new ControllerProduct();
+            controlorder = new ControllerOrders();
+            controlorderdetails = new ControllerOrderDetails();
+            controlperson = new ControllerPerson();
         }               
 
-        public void meniu()
+        public void menu()
         {
-            Console.WriteLine("===================Meniu Admin================");
-            Console.WriteLine($"Bun venit, {clienti.getNume()}");
-            Console.WriteLine("Apasati tasta 1 pentru a adauga un produs nou ");
-            Console.WriteLine("Apasati tasta 2 pentru a sterge un produs din lista");
-            Console.WriteLine("Apasati tasta 3 pentru a modifica stocul unui produs");
-            Console.WriteLine("Apasati tasta 4 pentru a modifica parola");
-            Console.WriteLine("Apasati tasta 5 pentru a sterge un client");
-            Console.WriteLine("Apasati tasta 6 pentru a vizualiza cele mai vandute produse");
-            Console.WriteLine("Apasati tasta 7 pentru a vedea stocurile reduse");
+            Console.WriteLine("===================Menu Admin================");
+            Console.WriteLine($"Bun venit, {person.Name}");
+            Console.WriteLine("Press 1 to add new product ");
+            Console.WriteLine("Press 2 to delete a product");
+            Console.WriteLine("Press 3 to change stock of a product");
+            Console.WriteLine("Press 4 to change password");
+            Console.WriteLine("Press 5 to delete a client");
+            Console.WriteLine("Press 6 to display best selling products");
+            Console.WriteLine("Press 7 to display stock at risk");
 
-            //stergem contul unui client 
-
-
-            //toate comenziile unui clinet sa anuleza o comanda a unui clinet
-
-            //sa vada cel mai bine vandut produs 
-
-            //care sunt stocurile ce trebuiesc update
+            
 
         }
 
@@ -50,34 +43,34 @@ namespace magazin_online
 
             while(running == true)
             {
-                meniu();
+                menu();
 
                 int alegere = Int32.Parse(Console.ReadLine());
 
                 switch (alegere) 
                 {
 
-                    case 1: 
-                        adaugareprodus();
+                    case 1:
+                        addProduct();
 
                         break;
                     case 2:
-                        stergereprodus();
+                        deleteProduct();
                         break;
                     case 3:
-                        modificarestoc();
+                        changeStock();
                         break;
                     case 4:
-                        modificareparola();
+                        changePassword();
                         break;
                     case 5:
-                        stergecontclient();
+                        deleteClient();
                         break;
                     case 6:
-                        vizualizarecelmaicumparatprodus();
+                        displayBestSellingProduct();
                         break;
                     case 7:
-                        vizualizarestocurimici();
+                        displayStockAtRisk();
                         break;
 
 
@@ -89,90 +82,93 @@ namespace magazin_online
         }
 
 
-        public void adaugareprodus()
+        public void addProduct()
         {
 
 
             Random rnd = new Random();
             int id = rnd.Next();
 
-            Console.WriteLine("Introduceti numele produsului pe care doriti sa il adaugati : ");
+            Console.WriteLine("Insert new product name : ");
 
-            string numeprodus = Console.ReadLine();
+            string productname = Console.ReadLine();
 
-            Console.WriteLine("Introduceti pretul pentru noul produs : ");
+            Console.WriteLine("Insert product type (Cloth/Shoe)");
+            string productype = Console.ReadLine();
 
-            int pretprodus = Int32.Parse(Console.ReadLine());
+            Console.WriteLine("Insert product price : ");
 
-            Console.WriteLine("Introduceti stocul pentru noul produs : ");
+            int productprice = Int32.Parse(Console.ReadLine());
 
-            int stocprodus = Int32.Parse(Console.ReadLine());
+            Console.WriteLine("Insert product available stock : ");
 
-            Product produs = new Product(id, numeprodus, pretprodus, stocprodus);
+            int productstock = Int32.Parse(Console.ReadLine());
 
-            controlproduse.add(produs);
+            Product product = new Product(id,productype,productname,productprice,productstock);
 
-            controlproduse.Save();  
+            controlproduct.addProduct(product);
+
+            controlproduct.Save();
 
 
         }
 
-        public void stergereprodus()
+        public void deleteProduct()
         {
-            Console.WriteLine("Introduceti numele produsului pe care doriti sa il stergeti din lista");
+            Console.WriteLine("Insert the name of the product you wish to delete from list");
 
-            string numeprodus = Console.ReadLine();
+            string productname = Console.ReadLine();
 
-            controlproduse.deletedupanume(numeprodus);
+            controlproduct.deleteProductByName(productname);
 
-            controlproduse.Save();
+            controlproduct.Save();
             
         }
 
 
-        public void modificarestoc()
+        public void changeStock()
         {
-            Console.WriteLine("Introduceti numele produsului al carui stoc doriti sa il modificati");
+            Console.WriteLine("Insert the name of the product whose stock you wish to change");
 
-            string numeprodus = Console.ReadLine();
+            string productname = Console.ReadLine();
 
-            Console.WriteLine("Introduceti cantitatea noua de stoc pentru produs");
+            Console.WriteLine("Insert new stock quanitity");
 
-            int stocnou = Int32.Parse(Console.ReadLine());
+            int newstock = Int32.Parse(Console.ReadLine());
 
-            controlproduse.updateStocdupanume(numeprodus, stocnou);
+            controlproduct.updateProductStockByName(productname,newstock);
 
-            controlproduse.Save();
+            controlproduct.Save();
         }
 
-        public void modificareparola()
+        public void changePassword()
         {
-            Console.WriteLine("Va rugam introduceti parola noua : ");
+            Console.WriteLine("Insert the new password : ");
 
-            string parolanoua = Console.ReadLine();
+            string newpassword = Console.ReadLine();
 
-            controlclienti.updateParola(clienti.getId(), parolanoua);
+            controlperson.updateAdminPassword(person.Id, newpassword);
 
-            Console.WriteLine("Parola a fost schimbata");
+            Console.WriteLine("Password changed");
 
-            controlclienti.Save();
+            controlperson.Save();
         }
 
-       public void stergecontclient()
+       public void deleteClient()
        {
-            Console.WriteLine("Introdceti numele clientului a carui cont doriti sa il stergeti");
+            Console.WriteLine("Insert name of the client you want to delete");
 
-            string numeclient = Console.ReadLine();
+            string clientname = Console.ReadLine();
 
-            controlclienti.deletedupanume(numeclient);
+            controlperson.deletePersonByName(clientname);
 
-            controlclienti.Save();
+            controlperson.Save();
        }
         
-       public void vizualizarecelmaicumparatprodus()
+       public void displayBestSellingProduct()
        {
 
-            int[] list = controldetalii.celmaivandutprouds();
+            int[] list = controlorderdetails.bestsellingproduct();
 
 
 
@@ -181,27 +177,27 @@ namespace magazin_online
 
                 if (list[i] != 0)
                 {
-                    Product p = controlproduse.produsdupaid(i);
+                    Product p = controlproduct.returnProductById(i);
 
-                    Console.WriteLine($"Produsul {p.getNume()} a fost vandut de {list[i]} ori");
+                    Console.WriteLine($"Product {p.getProductName()} was sold {list[i]} times");
                 }
             }
 
 
        }
-        //afiseaza produsele cu un stoc mai mic sau egal cu 5 
-        public void vizualizarestocurimici()
+        
+        public void displayStockAtRisk()
         {
 
-            int[] list = controlproduse.stoclalimita();
+            int[] list = controlproduct.stockAtRisk();
 
             for(int i = 0; i < list.Length; i++)
             {
                 if(list[i] != 0)
                 {
-                    Product p = controlproduse.produsdupaid(i);
+                    Product p = controlproduct.returnProductById(i);
 
-                    Console.WriteLine($"Porudusl{p.getNume()} este disponibil in stoc de {list[i]} ori");
+                    Console.WriteLine($"Product {p.getProductName()} is available {list[i]} times");
                 }
             }
 

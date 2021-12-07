@@ -32,7 +32,7 @@ namespace magazin_online
 
         }
 
-
+        
 
         public Person(string proprietati)
         {

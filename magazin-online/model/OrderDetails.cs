@@ -4,94 +4,83 @@ using System.Text;
 
 namespace magazin_online
 {
-    public class DetaliiComenzi
+    public class OrderDetails
     {
         private int id;
-        private int idcomanda;
-        private int idprodus;
-        private int pret;
-        private int cantitate;
+        private int orderid;
+        private int productid;
+        private int price;
+        private int quantity;
 
-        public DetaliiComenzi()
+        public OrderDetails(string proprietati)
         {
+            string[] prop = proprietati.Split(",");
 
+            this.id = Int32.Parse(prop[0]);
+            this.orderid = Int32.Parse(prop[1]);
+            this.productid = Int32.Parse(prop[2]);
+            this.price = Int32.Parse(prop[3]);
+            this.quantity = Int32.Parse(prop[4]);
         }
 
-        public DetaliiComenzi(int id, int idcomanda, int idprodus, int pret, int cantitate)
-        {
-            this.id = id;
-            this.idcomanda = idcomanda;
-            this.idprodus = idprodus;
-            this.pret = pret;
-            this.cantitate = cantitate;
-        }
-
-        public int getId()
-        {
-            return this.id;
-        }
-
-        public void setId(int id)
+        public OrderDetails(int id, int orderid,int productid,int price,int quantity)
         {
             this.id = id;
+            this.orderid = orderid;
+            this.productid = productid;
+            this.price = price;
+            this.quantity = quantity;
         }
 
-        public int getIdcomanda()
+        public int Id
         {
-            return this.idcomanda;
+            get { return id; }
+            set { id = value; }
         }
 
-        public void setIdcomanda(int idcomanda)
+        public int Orderid
         {
-            this.idcomanda = idcomanda;
+            get { return orderid; }
+            set { orderid = value; }
         }
 
-        public int getIdprodus()
+        public int Productid
         {
-            return this.idprodus;
+            get { return productid; }
+            set { productid = value; }
         }
 
-        public void setIdprodus(int idprodus)
+        public int Price
         {
-            this.idprodus = idprodus;
+            get { return price; }
+            set { price = value; }
+
+
         }
 
-        public int getPret()
+        public int Quantity
         {
-            return this.pret;
+            get { return quantity; }
+            set { quantity = value; }
         }
 
-        public void setPret(int pret)
-        {
-            this.pret = pret;
-        }
 
-        public int getCantitate()
-        {
-            return this.cantitate;
-        }
-
-        public void setCantitate(int cantitate)
-        {
-            this.cantitate = cantitate;
-        }
-
-        public string descriere()
+        public string orderDetails()
         {
             string text = "";
 
-            text += "Id" + id + "\n";
-            text += "Id-ul comenzii : " + idcomanda + "\n";
-            text += "Id-ul produsului : " + idprodus + "\n";
-            text += "Pretul produsului : " + pret + "\n";
-            text += "Cantitate : " + cantitate + "\n";
+            text += "Id : " + id + "\n";
+            text += "Order id : " + orderid + "\n";
+            text += "Product id : " + productid + "\n";
+            text += "Product price : " + price + "\n";
+            text += "Quantity : " + quantity + "\n";
 
             return text;
         }
 
         public string toSave()
         {
-            return this.id + "," + this.idcomanda + "," + this.idprodus + "," + this.pret + "," + this.cantitate;
+            return this.id + "," + this.orderid + "," + this.productid + "," + this.price + "," + this.quantity;
         }
     }
 }

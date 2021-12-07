@@ -13,7 +13,18 @@ namespace magazin_online.model
             this.password = password;
         }
 
-        public Client(string proprietati) : base(proprietati)
+        public Client(string proprietati) : base(
+
+            Int32.Parse(proprietati.Split(",")[0]),
+            proprietati.Split(",")[1],
+            proprietati.Split(",")[2],
+            proprietati.Split(",")[3],
+            proprietati.Split(",")[4],
+            proprietati.Split(",")[5],
+            Int32.Parse(proprietati.Split(",")[6])
+
+
+            )
         {
             string[] prop = proprietati.Split(",");
 

@@ -46,7 +46,7 @@ namespace magazin_online
                         break;
                     case 2:
 
-                        Registrare();
+                        Register();
                         break;
 
                     case 3:
@@ -61,71 +61,72 @@ namespace magazin_online
 
         public void Login()
         {
-            Console.WriteLine("Introduceti email-ul");
+            Console.WriteLine("Insert e-mail");
             string email = Console.ReadLine();
 
-            Console.WriteLine("Introduceti parola");
+            Console.WriteLine("Insert password");
             string password = Console.ReadLine();
 
 
 
-            Person p = control.returnClienti(email, password); ;
-
+            Person p = control.returnAdminByEmailPassword(email, password); 
+            Person c = control.returnClientByEmailPassword(email,password);
 
             if(p != null)
             {
-                if (p.getAdmin() == true)
+                if (p.Type.Equals("Admin"))
                 {
                     ViewAdmin v = new ViewAdmin(p);
 
                     v.play();
 
-                    Console.WriteLine("Autentificat cu rolul de admin");
+                    Console.WriteLine("Logged as admin");
 
                 }
-                else if (p.getAdmin() == false)
+                else if (c.Type.Equals("Client"))
                 {
-                    ViewClient c = new ViewClient(p);
+                    ViewClient client = new ViewClient(c);
 
-                    c.play();
+                    client.play();
 
-                    Console.WriteLine("autentificat cu rolul de client");
+                    Console.WriteLine("Logged as client");
                 }
             }
             else
             {
                 //registrare
-                Console.WriteLine("Clientul nu exista");
+                Console.WriteLine("Clientul doesn't exist");
             }
         }
 
 
-        public void Registrare()
+        public void Register()
         {  //id,email,parola,nume,adresa,tara,telefon
             Random random = new Random();
             int idrandom = random.Next(100, 10000);
 
-            Console.WriteLine("Introduceti emailul dumneavoastra : ");
+            Console.WriteLine("Insert your email : ");
 
-            string emailnou = Console.ReadLine();
+            string email = Console.ReadLine();
 
-            Console.WriteLine("Introduceti parola pentru contul dumneavoastra : ");
+            Console.WriteLine("Insert type (Admin/Client) : ");
 
-            string parolautilizator = Console.ReadLine();
+            string type = Console.ReadLine();
 
-            Console.WriteLine("Introduceeti numele dumneavostra : ");
-            string numenou = Console.ReadLine();
-            Console.WriteLine("Introduceti adresa de livrare pentru produse :");
-            string adresalivrare = Console.ReadLine();
-            Console.WriteLine("Introduceti tara : ");
-            string taranoua = Console.ReadLine();
-            Console.WriteLine("Introduceti numarul de telefon : ");
-            int nrtelefonnou = Int32.Parse(Console.ReadLine());
+            Console.WriteLine("Insert name : ");
+            string name = Console.ReadLine();
+            Console.WriteLine("Insert delivery address :");
+            string address = Console.ReadLine();
+            Console.WriteLine("Insert country : ");
+            string country = Console.ReadLine();
+            Console.WriteLine("Insert phone number : ");
+            int phonenumber = Int32.Parse(Console.ReadLine());
 
-            bool adminnou = false;
-            Person c = new Person(idrandom, emailnou, parolautilizator, numenou, adresalivrare, taranoua, nrtelefonnou,adminnou);
+            
 
-            control.add(c);
+            Person c = new Person(idrandom,type,email,name,address,country,phonenumber);
+
+            control.addPerson(c);
 
             control.Save();
 

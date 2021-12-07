@@ -4,78 +4,74 @@ using System.Text;
 
 namespace magazin_online
 {
-    public class Comenzi
+    public class Order
     {
         private int id;
+        private string type;
         private int idclient;
         private int ammount;
-        private string adresalivrare;
+        private string deliveryaddress;
 
 
 
-        public Comenzi()
+        public Order(string proprietati)
         {
+            string[] prop = proprietati.Split(",");
 
+            this.id=Int32.Parse(prop[0]);
+            this.type=prop[1];
+            this.idclient=Int32.Parse(prop[2]);
+            this.ammount=Int32.Parse(prop[3]);
+            this.deliveryaddress=prop[4];
         }
 
-        public Comenzi(int id,int idclient, int ammount, string adresalivrare)
+        public Order(int id,string type,int idclient, int ammount, string deliveryaddress)
         {
             this.id = id;
+            this.type = type;
             this.idclient = idclient;
             this.ammount = ammount;
-            this.adresalivrare = adresalivrare;
+            this.deliveryaddress = deliveryaddress;
         }
 
-        public int getId()
+        public int Id {
+            
+            get { return id; } 
+            set { id = value; } 
+        }
+        public string Type
         {
-            return this.id;
+            get { return type; }
+            set { type = value; }
         }
-
-        public void setId(int id)
+        public int ClientId
         {
-            this.id = id;
+            get { return idclient; }
+            set { idclient = value; }
         }
 
-
-        public int getIdclient()
+        public int Ammount
         {
-            return this.idclient;
+            get { return ammount; }
+            set { ammount = value; }
+
         }
 
-        public void setIdclient(int idclient)
+        public string Deliveryaddress
         {
-            this.idclient = idclient ;
+            get { return deliveryaddress; }
+            set { deliveryaddress = value; }
         }
 
-      
 
-        public int getAmmount()
-        {
-            return this.ammount;
-        }
-
-        public void setAmmount(int ammount)
-        {
-            this.ammount = ammount;
-        }
-
-        public string getAdresalivrare()
-        {
-            return this.adresalivrare;
-        }
-
-        public void setAdresalivrare(string adresalivrare)
-        {
-            this.adresalivrare = adresalivrare;
-        }
-
-        public string descriere()
+        public string orderDetails()
         {
             string text = "";
-            text += "Id-ul comenzii" + id + "\n";
-            text += "Id-ul clientului : " + idclient + "\n";
-            text += "Cantitatea : " + ammount + "\n";
-            text += "Adresa de livrare a comenzii : " + adresalivrare + "\n";
+            text += "Order id : " + id + "\n";
+            text += "Order type : " +type + "\n";
+            text += "Client id : " + idclient + "\n";
+            text += "Ammount : " + ammount + "\n";
+            text += "Delivery address : " + deliveryaddress + "\n";
 
 
             return text;
@@ -83,7 +79,7 @@ namespace magazin_online
 
         public string toSave()
         {
-            return this.id + "," + this.idclient + "," + this.ammount + "," + this.adresalivrare;
+            return this.id + "," +this.type+","+ this.idclient + "," + this.ammount + "," + this.deliveryaddress;
         }
     }
 }
