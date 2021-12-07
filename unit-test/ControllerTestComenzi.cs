@@ -10,7 +10,7 @@ namespace unit_test
     public class ControllerTestComenzi
     {
 
-        private ControllerComenzi control;
+        private ControllerOrders control;
 
         private readonly ITestOutputHelper output;
 
@@ -18,7 +18,7 @@ namespace unit_test
         public ControllerTestComenzi(ITestOutputHelper output)
         {
 
-            control = new ControllerComenzi();
+            control = new ControllerOrders();
 
             this.output = output;
 
@@ -51,7 +51,7 @@ namespace unit_test
         {
 
            
-            List<Comenzi> list = control.istoriccomenzi(1);
+            List<Order> list = control.istoriccomenzi(1);
 
 
             output.WriteLine(list.Count.ToString());

@@ -8,16 +8,16 @@ namespace magazin_online
     {
         private Person clienti;
         private ControllerPerson controlclienti;
-        private ControllerComenzi controlcomenzi;
-        private ControllerDetaliiComenzi controldetalii;
+        private ControllerOrders controlcomenzi;
+        private ControllerOrderDetails controldetalii;
         private ControllerProduse controlproduse;
 
         public ViewAdmin(Person clienti)
         {
             this.clienti = clienti;
             controlclienti = new ControllerPerson();
-            controlcomenzi = new ControllerComenzi();
-            controldetalii = new ControllerDetaliiComenzi();
+            controlcomenzi = new ControllerOrders();
+            controldetalii = new ControllerOrderDetails();
             controlproduse = new ControllerProduse();
         }               
 

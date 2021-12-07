@@ -10,13 +10,13 @@ namespace unit_test
     public class ControllerTestDetalliComanda
     {
 
-        private ControllerDetaliiComenzi control;
+        private ControllerOrderDetails control;
 
         private readonly ITestOutputHelper output;
 
         public ControllerTestDetalliComanda(ITestOutputHelper output)
         {
-            control = new ControllerDetaliiComenzi();
+            control = new ControllerOrderDetails();
 
             this.output = output;
         }
@@ -34,9 +34,9 @@ namespace unit_test
         public void testPozitie()
         {
 
-            DetaliiComenzi a = new DetaliiComenzi(1,200,300,1000,1);
-            DetaliiComenzi b = new DetaliiComenzi(2, 300, 400, 2000, 2);
-            DetaliiComenzi c = new DetaliiComenzi(3, 400, 500, 3000, 2);
+            OrderDetails a = new OrderDetails(1,200,300,1000,1);
+            OrderDetails b = new OrderDetails(2, 300, 400, 2000, 2);
+            OrderDetails c = new OrderDetails(3, 400, 500, 3000, 2);
 
             control.add(a);
             control.add(b);
@@ -62,7 +62,7 @@ namespace unit_test
         public void testSave()
         {
             control.load();
-            DetaliiComenzi a = new DetaliiComenzi(99,999,9999,1999,1);
+            OrderDetails a = new OrderDetails(99,999,9999,1999,1);
             control.add(a);
 
             control.Save();
@@ -77,11 +77,11 @@ namespace unit_test
         {
             control.load();
 
-            ControllerDetaliiComenzi c = new ControllerDetaliiComenzi();
+            ControllerOrderDetails c = new ControllerOrderDetails();
 
 
 
-            List<DetaliiComenzi> detalii = control.getDetaliicomenzi(1);
+            List<OrderDetails> detalii = control.getDetaliicomenzi(1);
 
             for(int i = 0; i < detalii.Count; i++)
             {
@@ -106,11 +106,11 @@ namespace unit_test
 
             control.load();
 
-            ControllerDetaliiComenzi c = new ControllerDetaliiComenzi();
+            ControllerOrderDetails c = new ControllerOrderDetails();
 
 
 
-            List<DetaliiComenzi> detalii = control.getDetaliicomenzi(2); // id comanda = 2
+            List<OrderDetails> detalii = control.getDetaliicomenzi(2); // id comanda = 2
 
             for (int i = 0; i < detalii.Count; i++)
             {
@@ -133,11 +133,11 @@ namespace unit_test
 
             //Preconditie   cream  mai multe order details cu produse si le daugam in controll
             //
-            DetaliiComenzi a = new DetaliiComenzi(1, 1, 1, 100, 3);
-            DetaliiComenzi b = new DetaliiComenzi(2, 2, 1, 100, 2);
-            DetaliiComenzi c = new DetaliiComenzi(3, 4, 2, 70, 2);
-            DetaliiComenzi d = new DetaliiComenzi(4, 10, 3, 80, 3);
-            DetaliiComenzi e = new DetaliiComenzi(5, 4, 2, 20, 7);
+            OrderDetails a = new OrderDetails(1, 1, 1, 100, 3);
+            OrderDetails b = new OrderDetails(2, 2, 1, 100, 2);
+            OrderDetails c = new OrderDetails(3, 4, 2, 70, 2);
+            OrderDetails d = new OrderDetails(4, 10, 3, 80, 3);
+            OrderDetails e = new OrderDetails(5, 4, 2, 20, 7);
 
             control.add(a);
             control.add(b);

@@ -15,11 +15,11 @@ namespace magazin_online
 
         private Person clienti;
         private ControllerProduse controlproduse;
-        private ControllerComenzi controlcomenzi;
-        private ControllerDetaliiComenzi controldetaliicomenzi;
+        private ControllerOrders controlcomenzi;
+        private ControllerOrderDetails controldetaliicomenzi;
         private ControllerPerson controlclienti;
 
-        private Comenzi comanda;
+        private Order comanda;
         
 
         public ViewClient(Person clienti)
@@ -27,8 +27,8 @@ namespace magazin_online
 
             this.clienti = clienti;
             controlproduse = new ControllerProduse();
-            controlcomenzi = new ControllerComenzi();
-            controldetaliicomenzi = new ControllerDetaliiComenzi();
+            controlcomenzi = new ControllerOrders();
+            controldetaliicomenzi = new ControllerOrderDetails();
             controlclienti = new ControllerPerson();
 
             comanda = new Comenzi(controlcomenzi.nextid(), clienti.getId(), 0, "");
@@ -153,7 +153,7 @@ namespace magazin_online
                 {
                     //adauga in cos
 
-                    DetaliiComenzi comandanoua = new DetaliiComenzi(controldetaliicomenzi.nextid(), comanda.getId(), produs.getId(), cantiatatedorita*(int)produs.getPret(),cantiatatedorita);
+                    OrderDetails comandanoua = new DetaliiComenzi(controldetaliicomenzi.nextid(), comanda.getId(), produs.getId(), cantiatatedorita*(int)produs.getPret(),cantiatatedorita);
 
 
 
@@ -183,7 +183,7 @@ namespace magazin_online
         public void vizualizarecos()
         {
 
-            List<DetaliiComenzi> detalii = controldetaliicomenzi.getDetaliicomenzi(comanda.getId());
+            List<OrderDetails> detalii = controldetaliicomenzi.getDetaliicomenzi(comanda.getId());
 
             for (int i = 0; i < detalii.Count; i++)
             {
@@ -209,7 +209,7 @@ namespace magazin_online
 
             Product produs = controlproduse.produs(numeprodus);
 
-            List<DetaliiComenzi> detalii = controldetaliicomenzi.getDetaliicomenzi(comanda.getId());
+            List<OrderDetails> detalii = controldetaliicomenzi.getDetaliicomenzi(comanda.getId());
 
             for(int i = 0; i < detalii.Count; i++)
             {
@@ -237,7 +237,7 @@ namespace magazin_online
 
 
 
-            List<DetaliiComenzi> detalii = controldetaliicomenzi.getDetaliicomenzi(comanda.getId());
+            List<OrderDetails> detalii = controldetaliicomenzi.getDetaliicomenzi(comanda.getId());
 
             for(int i = 0; i < detalii.Count; i++)
             {
@@ -325,7 +325,7 @@ namespace magazin_online
 
         public void istoriculcomenzilor()
         {
-            List<DetaliiComenzi> istoric = controldetaliicomenzi.getDetaliicomenzi(comanda.getIdclient());
+            List<OrderDetails> istoric = controldetaliicomenzi.getDetaliicomenzi(comanda.getIdclient());
 
             
             for(int i = 0; i < istoric.Count; i++)
@@ -338,7 +338,7 @@ namespace magazin_online
         public void ultimacomanda()
         {
 
-            List<DetaliiComenzi> istoric = controldetaliicomenzi.getDetaliicomenzi(comanda.getIdclient());
+            List<OrderDetails> istoric = controldetaliicomenzi.getDetaliicomenzi(comanda.getIdclient());
 
            
 
@@ -350,7 +350,7 @@ namespace magazin_online
         public void vizualizareordinecomenzi()
         {
 
-            List<DetaliiComenzi> istoric = controldetaliicomenzi.getDetaliicomenzi(comanda.getIdclient());
+            List<OrderDetails> istoric = controldetaliicomenzi.getDetaliicomenzi(comanda.getIdclient());
 
 
             for(int i = 0; i < istoric.Count-1; i++)
@@ -359,7 +359,7 @@ namespace magazin_online
                 {
                     if(istoric[i].getPret() > istoric[j].getPret())
                     {
-                        DetaliiComenzi aux = istoric[i];
+                        OrderDetails aux = istoric[i];
                         istoric[i] = istoric[j];
                         istoric[j] = aux;
                     }
@@ -370,7 +370,7 @@ namespace magazin_online
 
 
 
-            foreach(DetaliiComenzi detalii in istoric)
+            foreach(OrderDetails detalii in istoric)
             {
                 Console.WriteLine(detalii.descriere());
             }
