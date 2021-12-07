@@ -1,8 +1,0 @@
-1,email,parola,nume,adresa,tara,1234
-2,emaill,parolaa,numee,adresa,taraa,2345
-3,email123,parola123,nume123,adresa123,tara123,31321
-4,email456,parola242,nume318,adresa2183,tar2329,84318
-1,email,parola,nume,adresa,tara,1234
-2,emaill,parolaa,numee,adresa,taraa,2345
-3,email123,parola123,nume123,adresa123,tara123,31321
-4,email456,parola242,nume318,adresa2183,tar2329,84318

@@ -9,7 +9,7 @@ namespace magazin_online.model
         private string password;
         private int salary;
 
-        public Admin(string password, int salary, int id, string email, string name, string country, string address, int phonenumber) : base(id, email, name, address, country, phonenumber)
+        public Admin(string password, int salary, int id, string type,string email, string name, string country, string address, int phonenumber) : base(id,"Admin", email, name, address, country, phonenumber)
         {
             this.password = password;
             this.salary = salary;
@@ -19,8 +19,8 @@ namespace magazin_online.model
         {
             string[] prop = proprietati.Split(",");
 
-            this.password = prop[6];
-            this.salary = Int32.Parse(prop[7]);
+            this.password = prop[7];
+            this.salary = Int32.Parse(prop[8]);
 
 
         }

@@ -198,3 +198,10 @@ C:\Users\catas\Desktop\FullStackC#\Incapsularea\magazin-online\unit-test\obj\Deb
 C:\Users\catas\Desktop\FullStackC#\Incapsularea\magazin-online\unit-test\obj\Debug\netcoreapp3.1\unit-test.dll
 C:\Users\catas\Desktop\FullStackC#\Incapsularea\magazin-online\unit-test\obj\Debug\netcoreapp3.1\unit-test.pdb
 C:\Users\catas\Desktop\FullStackC#\Incapsularea\magazin-online\unit-test\obj\Debug\netcoreapp3.1\unit-test.genruntimeconfig.cache
+C:\Users\Asus\Source\Repos\mockup-shop-online\unit-test\obj\Debug\netcoreapp3.1\unit-test.csproj.AssemblyReference.cache
+C:\Users\Asus\Source\Repos\mockup-shop-online\unit-test\obj\Debug\netcoreapp3.1\unit-test.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Asus\Source\Repos\mockup-shop-online\unit-test\obj\Debug\netcoreapp3.1\unit-test.AssemblyInfoInputs.cache
+C:\Users\Asus\Source\Repos\mockup-shop-online\unit-test\obj\Debug\netcoreapp3.1\unit-test.AssemblyInfo.cs
+C:\Users\Asus\Source\Repos\mockup-shop-online\unit-test\obj\Debug\netcoreapp3.1\unit-test.csproj.CoreCompileInputs.cache
+C:\Users\Asus\Source\Repos\mockup-shop-online\unit-test\obj\Debug\netcoreapp3.1\unit-test.dll
+C:\Users\Asus\Source\Repos\mockup-shop-online\unit-test\obj\Debug\netcoreapp3.1\unit-test.pdb

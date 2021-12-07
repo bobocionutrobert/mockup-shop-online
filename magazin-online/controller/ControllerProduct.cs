@@ -2,16 +2,17 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using magazin_online.model;
 
 
 namespace magazin_online
 {
-    public class ControllerProduse
+    public class ControllerProduct
     {
 
         private List<Product> products;
 
-        public ControllerProduse()
+        public ControllerProduct()
         {
             products = new List<Product>();
 
@@ -159,7 +160,105 @@ namespace magazin_online
             }
         }
 
-        
+        public void updateProductName(int productid, string newproductname)
+        {
+            foreach(Product product in products)
+            {
+                if(product.getProductId() == productid)
+                {
+                    product.setProductName(newproductname);
+                }
+            }
+        }
+
+        public void updateProductPrice(int productid,int newproductprice)
+        {
+            foreach(Product product in products)
+            {
+                if (product.getProductId() == productid)
+                {
+                    product.setProductPrice(newproductprice);
+                }
+            }
+        }
+
+        public void updateProductStock(int productid,int newproductstock)
+        {
+            foreach(Product product in products)
+            {
+                if(product.getProductId() == productid)
+                {
+                    product.setProductStock(newproductstock);
+                }
+            }
+        }
+
+        public void updateClothSize(int productid,string newclothsize)
+        {
+            foreach(Product product in products)
+            {
+                if(product.getProductId() == productid)
+                {
+                    Cloth cloth = product as Cloth;
+
+                    cloth.setClothColor(newclothsize);
+
+
+                }
+            }
+        }
+
+        public void updateClothColor(int productid,string newclothcolor)
+        {
+            foreach(Product product in products)
+            {
+                if(product.getProductId() == productid)
+                {
+                    Cloth cloth = product as Cloth;
+
+                    cloth.setClothColor(newclothcolor);
+                }
+            }
+        }
+
+        public void updateKidsCloth(int productid, bool newkidcloth)
+        {
+            foreach(Product product in products)
+            {
+                if(product.getProductId() == productid)
+                {
+                    Cloth cloth = product as Cloth;
+
+                    cloth.setKidCloth(newkidcloth);
+                }
+            }
+        }
+
+        public void updateShoeSize(int productid, int newshoesize)
+        {
+            foreach(Product product in products)
+            {
+                if(productid == product.getProductId())
+                {
+                    Shoe shoe = product as Shoe;
+
+                    shoe.setShoeSize(newshoesize);
+                }
+            }
+        }
+
+        public void updateShoeColor(int productid, string newshoecolor)
+        {
+            foreach(Product product in products)
+            {
+                if(product.getProductId() == productid)
+                {
+                    Shoe shoe = product as Shoe;
+
+                    shoe.setShoeColor(newshoecolor);
+                }
+            }
+        }
         
         
         
@@ -167,7 +266,9 @@ namespace magazin_online
         public void load()
         {
 
-            StreamReader read = new StreamReader(@"C:\Users\catas\Desktop\FullStackC#\Incapsularea\magazin-online\magazin-online\resources\produse.txt");
+            StreamReader read = new StreamReader(@"C:\Users\Asus\source\repos\mockup-shop-online\magazin-online\resources\products.txt");
+
+            this.products.Clear();
 
             string line = "";
 
@@ -175,18 +276,15 @@ namespace magazin_online
             {
                 string[] prop = line.Split(",");
 
-                int productid = Int32.Parse(prop[0]);
-                string producttype = prop[1];
-                string productname = prop[2]; 
-                double price  = double.Parse(prop[2]);
-                int productstock = Int32.Parse(prop[3]);
-
-                Product product = new Product(productid,producttype,productname,price,productstock);
-
-                products.Add(product);
-
-
-
+                if (prop[1].Equals("Cloth"))
+                {
+                    this.products.Add(new Cloth(line));
+                }
+                else
+                {
+                    this.products.Add(new Shoe(line));
+                }
+              
 
             }
             read.Close();
@@ -212,13 +310,13 @@ namespace magazin_online
 
         public void Save()
         {
-            StreamWriter write = new StreamWriter(@"C:\Users\catas\Desktop\FullStackC#\Incapsularea\magazin-online\magazin-online\resources\produse.txt");
+            StreamWriter write = new StreamWriter(@"C:\Users\Asus\source\repos\mockup-shop-online\magazin-online\resources\products.txt");
 
             write.Write(toSave());
 
             write.Close();
 
-
+            
 
 
         }

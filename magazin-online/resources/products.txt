@@ -1,0 +1,8 @@
+///id,cloth,name,price/stock/stringsize/stringcolor/boolkids
+//id,shoe,name/price,stock,intsize/stringcolor
+1,Cloth,T-Shirt,100,12,M,red,true
+2,Cloth,Shirt,200,10,L,white,false
+3,Cloth,Jeans,150,38,L,blue,false
+4,Shoe,Adidas,250,6,42,black
+5,Shoe,Nike,300,8,44,white
+6,Shoe,Jordan,600,12,43,red

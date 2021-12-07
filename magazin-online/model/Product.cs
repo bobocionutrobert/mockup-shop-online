@@ -15,7 +15,7 @@ namespace magazin_online
         private int productstock;
 
         
-
+       
 
         public Product(string proprietati)
         {

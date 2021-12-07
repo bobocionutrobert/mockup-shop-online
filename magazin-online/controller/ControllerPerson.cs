@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using magazin_online.model;
 
 namespace magazin_online
 {
@@ -29,24 +30,11 @@ namespace magazin_online
             }
         }
 
-        public int pozitie(int id)
+        public int positionById(int personid)
         {
-            for (int i = 0; i < clienti.Count; i++)
+            for(int i =0;i< persons.Count; i++)
             {
-                if (clienti[i].getId() == id)
-                {
-                    return i;
-                }
-
-            }
-            return -1;
-        }
-
-        public int pozitiedupanume(string numeclient)
-        {
-            for(int i = 0; i < clienti.Count; i++)
-            {
-                if(clienti[i].getNume().Equals(numeclient))
+                if(persons[i].Id == personid)
                 {
                     return i;
                 }
@@ -54,182 +42,191 @@ namespace magazin_online
             return -1;
         }
 
-
-        public Person client(int id)
+        public int positionByName(string personname)
         {
-            for (int i = 0; i < clienti.Count; i++)
+            for(int i=0;i< persons.Count; i++)
             {
-                if (clienti[i].getId() == id)
+                if (persons[i].Name.Equals(personname))
                 {
-                    return clienti[i];
+                    return i;
                 }
-
             }
-            return null;
+            return -1;
         }
 
-        public Person returnClienti(string email, string parola)
+        public Person returnPersonbyId(int personid)
         {
-            for(int i = 0; i < clienti.Count; i++)
+            foreach(Person person in persons)
             {
-                if(clienti[i].getEmail().Equals(email) && clienti[i].getParola().Equals(parola))
+                if(person.Id == personid)
                 {
-                    return clienti[i];
+                    return person;
                 }
             }
             return null;
         }
 
-        public bool add(Person client)
+        public Person returnPersonByName(string personname)
         {
-            int poz = pozitie(client.getId());
-
-            if (poz != -1)
+            foreach(Person person in persons)
             {
-                Console.WriteLine("Clientul exista in lista ");
+                if (person.Name.Equals(personname))
+                {
+                    return person;
+                }
+            }
+            return null;
+        }
+
+        public bool addPerson(Person person)
+        {
+            int poz = positionById(person.Id);
+
+            if(poz != -1)
+            {
+                Console.WriteLine("Person already in list");
                 return false;
             }
             else
             {
-                clienti.Add(client);
-                Console.WriteLine("Clientul a fost adaugata");
+                persons.Add(person);
+                Console.WriteLine("Person added to list");
                 return true;
             }
         }
 
-        public bool delete(int id)
+        public bool deletePersonById(int personid)
         {
-            int poz = pozitie(id);
+            int poz = positionById(personid);
 
             if (poz == -1)
             {
-                Console.WriteLine("Clientul nu exista in lista");
+                Console.WriteLine("Person isn't in the list");
                 return false;
             }
             else
             {
-                clienti.RemoveAt(poz);
-                Console.WriteLine("Clientul a fost stearsa din lista");
+                persons.RemoveAt(poz);
+                Console.WriteLine("Person deleted from list");
                 return true;
             }
         }
 
-        public bool deletedupanume(string numeclient)
+        public bool deletePersonByName(string personname)
         {
-            int poz = pozitiedupanume(numeclient);
+            int poz = positionByName(personname);
             if(poz == -1)
             {
-                Console.WriteLine("Clientul nu exista in lista");
+                Console.WriteLine("Person isn't in the list");
                 return false;
             }
             else
             {
-                clienti.RemoveAt(poz);
-                Console.WriteLine("Clientul a fost sters din lista");
+                persons.RemoveAt(poz);
+                Console.WriteLine("Person deleted from list");
                 return true;
             }
         }
 
-        public bool updateNume(int id, string numenou)
+        public void updatePersonEmail(int personid,string newpersonemail)
         {
-            int poz = pozitie(id);
-
-            if (poz == -1)
+            foreach(Person person in persons)
             {
-                return false;
-            }
-            else
-            {
-                
-                clienti[poz].setNume(numenou);
-                Console.WriteLine("Numele profilului a fost modificat");
-                return true;
+                if(person.Id == personid)
+                {
+                    person.Email = newpersonemail;
+                }
             }
         }
 
-        public bool updateEmail(int id,string emailnou)
+        public void updatePersonName(int personid,string newpersoname)
         {
-            int poz = pozitie(id);
-
-            if (poz == -1)
+            foreach(Person person in persons)
             {
-                return false;
-            }
-            else
-            {
-                
-                clienti[poz].setEmail(emailnou);
-                return true;
+                if(person.Id == personid)
+                {
+                    person.Name = newpersoname;
+                }
             }
         }
 
-        public bool updateParola(int id,string parolanoua)
+        public void updatePersonAddress(int personid, string newpersonaddress)
         {
-            int poz = pozitie(id);
-
-            if(poz == -1)
+            foreach(Person person in persons)
             {
-                return false;
-            }
-            else
-            {
-                
-
-                clienti[poz].setParola(parolanoua);
-                return true;
-            }
-
-        }
-
-        public bool updateAdresa(int id,string adresanoua)
-        {
-            int poz = pozitie(id);
-            if (poz == -1)
-            {
-                return false;
-            }
-            else
-            {
-                
-                clienti[poz].setAdersa(adresanoua);
-                return false;
+                if(person.Id == personid)
+                {
+                    person.Address = newpersonaddress;
+                }
             }
         }
 
-        public bool updateTara(int id,string taranoua)
+        public void updatePersonCountry(int personid, string newpersoncountry)
         {
-            int poz = pozitie(id);
-            if (poz == -1)
+            foreach( Person person in persons)
             {
-                return false;
-            }
-            else
-            {
-               
-                clienti[poz].setTara(taranoua);
-                return true;
+                if(person.Id == personid)
+                {
+                    person.Country = newpersoncountry;
+                }
             }
         }
 
-        public bool updateNrTelefon(int id,int telefonnou)
+        public void updatePersonPhoneNumber(int personid,int newpersonphonenumber)
         {
-            int poz = pozitie(id);
-            if (poz == -1)
+            foreach(Person person in persons)
             {
-                return false;
-            }
-            else
-            {
-                
-                clienti[poz].setNrtelefon(telefonnou);
-                return true;
+                if(person.Id == personid)
+                {
+                    person.Phone = newpersonphonenumber;
+                }
             }
         }
 
+        public void updateClientPassword(int personid,string newpassword)
+        {
+            foreach(Person person in persons)
+            {
+                if(person.Id == personid)
+                {
+                    Client client = person as Client;
+
+                    client.Password = newpassword;
+                }
+            }
+        }
+
+        public void updateAdminPassword(int personid,string newpassword)
+        {
+            foreach(Person person in persons)
+            {
+                if(person.Id == personid)
+                {
+                    Admin admin = person as Admin;
+
+                    admin.Password = newpassword;
+                }
+            }
+        }
+
+        public void updateAdminSalary(int personid, int newsalary)
+        {
+            foreach(Person person in persons)
+            {
+                if(person.Id == personid)
+                {
+                   Admin admin = person as Admin;
+
+                    admin.Salary = newsalary;
+                }
+            }
+        }
 
         public void load()
         {
-            StreamReader read = new StreamReader(@"C:\Users\catas\Desktop\FullStackC#\Incapsularea\magazin-online\magazin-online\resources\clienti.txt");
+            StreamReader read = new StreamReader(@"C:\Users\Asus\source\repos\mockup-shop-online\magazin-online\resources\persons.txt");
+
+            this.persons.Clear();
 
             string line = "";
 
@@ -238,18 +235,14 @@ namespace magazin_online
                 string[] prop = line.Split(",");
 
 
-                int id = Int32.Parse(prop[0]);
-                string email = prop[1];
-                string parola = prop[2];
-                string nume = prop[3];
-                string adresa = prop[4];
-                string tara = prop[5];
-                int nrtelefon = Int32.Parse(prop[6]);
-                bool admin = bool.Parse(prop[7]);
-
-                Person client = new Person(id,email,parola,nume,adresa,tara,nrtelefon,admin);
-
-                clienti.Add(client);
+                if (prop[1].Equals("Client"))
+                {
+                    this.persons.Add(new Client(line));
+                }
+                else
+                {
+                    this.persons.Add(new Admin(line));
+                }
 
             }
 
@@ -264,21 +257,21 @@ namespace magazin_online
             int i = 0;
 
 
-            for(i = 0; i < clienti.Count-1; i++)
+            for(i = 0; i < persons.Count-1; i++)
             {
 
-                text += clienti[i].toSave() + "\n";
+                text += persons[i].toSave() + "\n";
 
             }
 
-            text += clienti[i].toSave();
+            text += persons[i].toSave();
 
             return text;
         }
 
         public void Save()
         {
-            StreamWriter write = new StreamWriter(@"C:\Users\catas\Desktop\FullStackC#\Incapsularea\magazin-online\magazin-online\resources\clienti.txt");
+            StreamWriter write = new StreamWriter(@"C:\Users\Asus\source\repos\mockup-shop-online\magazin-online\resources\persons.txt");
 
             write.Write(toSave());
 

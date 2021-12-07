@@ -7,21 +7,23 @@ namespace magazin_online
     public class Person
     {
         private int id;
+        private string type;
         private string email;
         private string name;
         private string address;
         private string country;
         private int phonenumber;
         
-
+        
         public Person()
         {
 
         }
 
-        public Person(int id, string email, string name, string address, string country, int phonenumber)
+        public Person(int id, string type,string email, string name, string address, string country, int phonenumber)
         {
             this.id = id;
+            this.type=type;
             this.email = email;
             this.name = name;
             this.address = address;
@@ -37,11 +39,12 @@ namespace magazin_online
             string[] prop = proprietati.Split(",");
 
             this.id = Int32.Parse(prop[0]);
-            this.email = prop[1];
-            this.name = prop[2];
-            this.address= prop[3];
-            this.country = prop[4];
-            this.phonenumber = Int32.Parse(prop[5]);
+            this.type = prop[1];
+            this.email = prop[2];
+            this.name = prop[3];
+            this.address= prop[4];
+            this.country = prop[5];
+            this.phonenumber = Int32.Parse(prop[6]);
         }
 
         public int Id { 
@@ -49,6 +52,12 @@ namespace magazin_online
             get { return id; } 
             set { this.id = value; }
         
+        }
+
+        public string Type 
+        {
+            get { return type; }
+            set { type = value; }
         }
 
         public string Email
@@ -97,7 +106,7 @@ namespace magazin_online
 
         public string toSave()
         {
-            return this.id + "," + this.email + ","+ this.name + "," + this.address + "," + this.country + "," + this.phonenumber;
+            return this.id + "," + this.type+ "," + this.email + ","+ this.name + "," + this.address + "," + this.country + "," + this.phonenumber;
         }
     }
 }

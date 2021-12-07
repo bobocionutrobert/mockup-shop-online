@@ -1,0 +1,4 @@
+1,Client,clientemail,clientname,clientaddress,clientcountry,2183219,password
+2,Client1,clientemail2,clientname2,clientaddress2,clientcountry2,8482913,password2
+3,Admin,adminemail1,adminname1,adminaddress1,adminacountry1,238428,adminpassword
+4,Admin,adminemail,adminname,adminaddress,admincountry,48437821,aadminpassword

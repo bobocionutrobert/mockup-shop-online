@@ -8,7 +8,7 @@ namespace magazin_online.model
     {
         private string password;
 
-        public Client(string password,int id,string email,string name,string country,string address,int phonenumber) : base(id,email,name,address,country,phonenumber)
+        public Client(string password,int id,string type,string email,string name,string country,string address,int phonenumber) : base(id,"Client",email,name,address,country,phonenumber)
         {
             this.password = password;
         }
@@ -17,7 +17,7 @@ namespace magazin_online.model
         {
             string[] prop = proprietati.Split(",");
 
-            this.password = prop[6];
+            this.password = prop[7];
 
 
         }
