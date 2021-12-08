@@ -72,9 +72,9 @@ namespace magazin_online.model
         {
             string text = base.productDetails();
 
-            text += "Cloth size is : " + size + "/n";
-            text += "Cloth color : " + color + "/n";
-            text += "Kids size ? " + kidssize + "/n";
+            text += "Cloth size is : " + size + "\n";
+            text += "Cloth color : " + color + "\n";
+            text += "Kids size ? " + kidssize + "\n";
 
             return text;
         }

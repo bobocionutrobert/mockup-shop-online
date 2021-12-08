@@ -1,5 +1,3 @@
-///id,cloth,name,price/stock/stringsize/stringcolor/boolkids
-//id,shoe,name/price,stock,intsize/stringcolor
 1,Cloth,T-Shirt,100,12,M,red,true
 2,Cloth,Shirt,200,10,L,white,false
 3,Cloth,Jeans,150,38,L,blue,false

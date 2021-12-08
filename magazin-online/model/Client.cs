@@ -45,7 +45,7 @@ namespace magazin_online.model
 
             string text = base.personDetails();
 
-            text += "Client password : " + password + "/n";
+            text += "Client password : " + password + "\n";
 
             return text;
 

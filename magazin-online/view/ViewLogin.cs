@@ -1,4 +1,5 @@
-﻿using System;
+﻿using magazin_online.model;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -16,11 +17,11 @@ namespace magazin_online
 
         public void meniu()
         {
-            Console.WriteLine("Apasati tasta 1 pentru a va loga");
+            Console.WriteLine("Press 1 to log as admin");
 
-            Console.WriteLine("Apasati tasta 2 pentru a va inregistra");
+            Console.WriteLine("Press 2 to log as client");
 
-            Console.WriteLine("Apasati tasta 3 pentru a iesi");
+            Console.WriteLine("Press 3 to register");
 
         }
 
@@ -41,16 +42,16 @@ namespace magazin_online
                 {
                     case 1:
 
-                        Login();
+                        LoginAdmin();
 
                         break;
                     case 2:
 
-                        Register();
+                        LoginClient();  
                         break;
 
                     case 3:
-
+                        Register();
                         break;
 
 
@@ -59,7 +60,7 @@ namespace magazin_online
             }
         }
 
-        public void Login()
+        public void LoginAdmin()
         {
             Console.WriteLine("Insert e-mail");
             string email = Console.ReadLine();
@@ -70,8 +71,10 @@ namespace magazin_online
 
 
             Person p = control.returnAdminByEmailPassword(email, password); 
-            Person c = control.returnClientByEmailPassword(email,password);
+            
 
+            
+           
             if(p != null)
             {
                 if (p.Type.Equals("Admin"))
@@ -83,20 +86,48 @@ namespace magazin_online
                     Console.WriteLine("Logged as admin");
 
                 }
-                else if (c.Type.Equals("Client"))
+            }
+            else
+            {
+                
+                Console.WriteLine("Client doesn't exist");
+            }
+        }
+
+        public void LoginClient()
+        {
+            Console.WriteLine("Insert e-mail");
+            string email = Console.ReadLine();
+
+            Console.WriteLine("Insert password");
+            string password = Console.ReadLine();
+
+
+            Person p = control.returnClientByEmailPassword(email, password);
+
+            
+
+
+            if (p != null)
+            {
+                if (p.Type.Equals("Client"))
                 {
-                    ViewClient client = new ViewClient(c);
+
+
+                    ViewClient client = new ViewClient(p);
 
                     client.play();
 
                     Console.WriteLine("Logged as client");
+
                 }
             }
             else
             {
-                //registrare
-                Console.WriteLine("Clientul doesn't exist");
+
+                Console.WriteLine("Client doesn't exist");
             }
+
         }
 
 

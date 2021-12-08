@@ -82,13 +82,11 @@ namespace magazin_online
         {
             foreach (Person person in persons)
             {
-                Admin admin = person as Admin;
 
-                if (admin.Email.Equals(email) && admin.Password.Equals(password))
-                {
-                    
+                if (person is Admin admin && admin.Email.Equals(email) && admin.Password.Equals(password))
+                
                     return admin;
-                }
+               
             }
             return null;
         }
@@ -97,13 +95,13 @@ namespace magazin_online
         {
             foreach (Person person in persons)
             {
-                Client client = person as Client;
+                if (person is Client client && client.Email.Equals(email) && client.Password.Equals(password))
+                
 
-                if (client.Email.Equals(email) && client.Password.Equals(password))
-                {
-
-                    return client;
-                }
+                    
+                        return client;
+                    
+                
             }
             return null;
         }
@@ -258,7 +256,7 @@ namespace magazin_online
         {
             StreamReader read = new StreamReader(@"C:\Users\Asus\source\repos\mockup-shop-online\magazin-online\resources\persons.txt");
 
-            this.persons.Clear();
+            
 
             string line = "";
 

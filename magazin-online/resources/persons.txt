@@ -1,4 +1,4 @@
-1,Client,clientemail,clientname,clientaddress,clientcountry,2183219,password
-2,Client1,clientemail2,clientname2,clientaddress2,clientcountry2,8482913,password2
-3,Admin,adminemail1,adminname1,adminaddress1,adminacountry1,238428,adminpassword,2000
-4,Admin,adminemail,adminname,adminaddress,admincountry,48437821,aadminpassword,3000
+1,Client,client,clientname,clientaddress,clientcountry,2183219,password
+2,Client,clientemail2,clientname2,clientaddress2,clientcountry2,8482913,password
+3,Admin,admin,adminname1,adminaddress1,adminacountry1,238428,password,1000
+4,Admin,adminemail,adminname,adminaddress,admincountry,48437821,password,2000

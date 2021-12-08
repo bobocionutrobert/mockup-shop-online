@@ -1,4 +1,5 @@
 ﻿using magazin_online;
+using magazin_online.model;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -39,7 +40,7 @@ namespace unit_test
 
             control.load();
 
-            Assert.Equal(2, control.positionByName("Admin"));
+            Assert.Equal(2, control.positionByName("adminname1"));
         }
 
 
@@ -117,23 +118,54 @@ namespace unit_test
         {
             control.load();
 
-            Assert.Equal("Admin", control.returnPersonByName("Admin").Name);
+            Assert.Equal("adminname", control.returnPersonByName("Admin").Name);
         }
+
         [Fact]
-        public void testSave()
+        public void testReturnAdmin()
         {
             control.load();
 
-            
+            Person a = control.returnAdminByEmailPassword("admin", "password");
 
-            control.Save();
+            if( a is Admin admin)
 
+            Assert.Equal(1000, admin.Salary);
+
+        }
+        [Fact]
+        public void testReturnAdmin1()
+        {
             control.load();
 
-            output.WriteLine(control.toSave());
+            Person a = control.returnAdminByEmailPassword("admin", "password");
+
+            output.WriteLine(a.personDetails());
+
+        }
+        [Fact]
+        public void testReturnClient()
+        {
+            control.load();
+            Person p = control.returnClientByEmailPassword("client", "password");
+            
+            Assert.Equal("Client",p.Type); 
+        }
+        //[Fact]
+        //public void testSave()
+        //{
+        //    control.load();
 
             
-        }
+
+        //    control.Save();
+
+        //    control.load();
+
+        //    output.WriteLine(control.toSave());
+
+            
+        //}
 
 
     }
